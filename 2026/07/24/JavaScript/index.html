@@ -247,29 +247,79 @@
 <p>函数不会自动运行，需要通过函数名调用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sayHello(name)&#123;</span><br><span class="line">	return &quot;Hello,&quot; + name;</span><br><span class="line">&#125;</span><br><span class="line">var res = sayHello(&quot;Peter&quot;);</span><br><span class="line">console.log(res);   // 输出Hello，Peter</span><br></pre></td></tr></table></figure>
 
+<h3 id="7、运算符"><a href="#7、运算符" class="headerlink" title="7、运算符"></a>7、运算符</h3><h4 id="7-1-算数运算符"><a href="#7-1-算数运算符" class="headerlink" title="7.1 算数运算符"></a>7.1 算数运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730211100861.png"></p>
+<p>其中 <code>/</code> 是正常小数除法（不是整除），<code>%</code> 是取余</p>
+<h4 id="7-2-赋值运算符"><a href="#7-2-赋值运算符" class="headerlink" title="7.2 赋值运算符"></a>7.2 赋值运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730212313902.png"></p>
+<h3 id="7-3-字符串运算符"><a href="#7-3-字符串运算符" class="headerlink" title="7.3 字符串运算符"></a>7.3 字符串运算符</h3><p><strong><code>+</code></strong> 运算符可以将左右两侧字符串拼接到一起；</p>
+<p><strong><code>+=</code></strong> 表示先将字符串拼接，再将结果赋值给左侧变量；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;Hello&quot;；</span><br><span class="line">var y = &quot;World&quot;；</span><br><span class="line">var z = x + y；</span><br><span class="line">console.log(x);   //输出:Hello World!</span><br><span class="line">x += y;</span><br><span class="line">console.log(x);   //输出:Hello World!</span><br></pre></td></tr></table></figure>
 
+<h4 id="7-4-自增、自减运算符"><a href="#7-4-自增、自减运算符" class="headerlink" title="7.4 自增、自减运算符"></a>7.4 自增、自减运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730213203481.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var num1,num2 = 10,4;</span><br><span class="line">document.write(num1++);   //输出:10</span><br><span class="line">document.write(num1);     //输出:11</span><br><span class="line">//先返回num1的值(10)，在将num1的值加1(但不输出)。</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(++num1);   //输出:11</span><br><span class="line">//先将num1的值加1，然后返回num1。</span><br></pre></td></tr></table></figure>
 
+<h4 id="7-5-比较运算符"><a href="#7-5-比较运算符" class="headerlink" title="7.5 比较运算符"></a>7.5 比较运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730214120672.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x == y；</span><br></pre></td></tr></table></figure>
 
+<p>x 和 y 值相等 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x === y；</span><br></pre></td></tr></table></figure>
 
+<p>x 和 y 的值相等且类型相同</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x != y;</span><br></pre></td></tr></table></figure>
 
+<p>x 和 y 不相等</p>
+<h3 id="8、输出语句"><a href="#8、输出语句" class="headerlink" title="8、输出语句"></a>8、输出语句</h3><p>JavaScript中提供了多种方式来向浏览器中输出内容：</p>
+<p>① 使用 <code>alert( )</code> 函数来弹出提示框；</p>
+<p>② 使用 <code>confirm( ) </code>函数来弹出一个对话框；</p>
+<p>③ 使用 <code>document.write( )</code> 方法将内容写入到HTML文档中；</p>
+<p>④ 使用 <code>innerHTML</code> 将内容写入到HTML标签中；</p>
+<p>⑤ 使用 <code>console.log( ) </code>在浏览器的控制台输出内容;</p>
+<h4 id="8-1-alert-与confirm"><a href="#8-1-alert-与confirm" class="headerlink" title="8.1 alert( )与confirm( )"></a>8.1 alert( )与confirm( )</h4><ul>
+<li><strong><code>alert( )</code><strong>：仅弹出一个带</strong>单个”确定”按钮</strong>的纯文本提示框，是单向的信息告知，用户除了点击确定关闭弹窗外没有其他操作选项。</li>
+<li><strong><code>confirm( )</code><strong>：弹出包含</strong>“确定”和”取消”两个按钮</strong>的对话框，是双向的交互选择，用户可以自主选择确认或取消当前操作。</li>
+</ul>
+<h4 id="8-2-console-log"><a href="#8-2-console-log" class="headerlink" title="8.2 console.log( )"></a>8.2 console.log( )</h4><p>console.log( )将内容输出在控制台，常用来调试程序；</p>
+<p>console.log( )输出的内容不显示在页面，需要F12打开检查;</p>
+<h4 id="8-3-innerHTML"><a href="#8-3-innerHTML" class="headerlink" title="8.3 innerHTML"></a>8.3 innerHTML</h4><p>与其他方法不同， <code>innerHTML</code> 是一个属性而非函数；</p>
+<p>通过它可以设置或者获取指定HTML标签中的内容；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1 id=&quot;h&quot;&gt;这是一个标题&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">var demo = document.getElementById(&quot;h&quot;);</span><br><span class="line">demo.innerHTML = &quot;&lt;h5&gt;这是一个标题&lt;/h5&gt;&quot;;</span><br></pre></td></tr></table></figure>
 
+<h3 id="9、条件判断"><a href="#9、条件判断" class="headerlink" title="9、条件判断"></a>9、条件判断</h3><h4 id="9-1-if-else语句"><a href="#9-1-if-else语句" class="headerlink" title="9.1 if-else语句"></a>9.1 if-else语句</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	var age = 18;</span><br><span class="line">	if(age&lt;18)&#123;</span><br><span class="line">		alert(&quot;未成年&quot;);</span><br><span class="line">	&#125;else if(age == 18)&#123;</span><br><span class="line">		alert(&quot;成年了&quot;);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		alert(&quot;年纪大了&quot;)；</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+<h4 id="9-2-while循环语句"><a href="#9-2-while循环语句" class="headerlink" title="9.2 while循环语句"></a>9.2 while循环语句</h4><p>while循环：满足条件执行；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	var num = 1;</span><br><span class="line">	while(num &lt;= 5)&#123;</span><br><span class="line">		document.write(&quot;我很帅&quot;);</span><br><span class="line">		num++</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+<p>do-while循环：无条件执行一次，再进入while循环判断；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	var num = 1;</span><br><span class="line">	do&#123;</span><br><span class="line">		document.write(&quot;我很帅&quot;);</span><br><span class="line">		num++</span><br><span class="line">	&#125;while(num &lt;= 5)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+<h4 id="9-3-for循环语句"><a href="#9-3-for循环语句" class="headerlink" title="9.3 for循环语句"></a>9.3 for循环语句</h4><p>JavaScript中的for循环包含三个可选的表达式 <code>initialization</code>、<code>condition</code>、<code>increment</code> ，其中:</p>
+<ul>
+<li><p><strong><code>initialization</code><strong>：“初始化计数器变量”，</strong>声明一个表达式或变量</strong>，在循环过程中<strong>只会执行一次</strong>；</p>
+</li>
+<li><p>**<code>condition</code>**：条件表达式，与while循环中的条件表达式功能相同，</p>
+<p>​                         通常用来与计数器的值进行比较，以确定是否进行循环，通过该表达式可以<strong>设置循环的次数</strong>;</p>
+</li>
+<li><p>**<code>increment</code>**：一个用于在每次循环后更新计数器的表达式；</p>
+</li>
+</ul>
+<p>① for循环的所有条件(三个表达式)写在同一行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (var i = 1; i&lt;=10; i++)&#123;</span><br><span class="line">	document.write(i + &quot; &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>② for循环遍历数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var data_list = [&quot;python&quot;,&quot;java&quot;,&quot;php&quot;,&quot;mysql&quot;,&quot;mongodb&quot;];</span><br><span class="line"></span><br><span class="line">for(var i=0; i&lt;data_list.length; i++)&#123;</span><br><span class="line">	document.write(data_list[i]+&quot;&amp;emsp&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>③ break语句（终止循环）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">	if(i==5)&#123;</span><br><span class="line">		break</span><br><span class="line">	&#125;</span><br><span class="line">	document.write(i+&quot;&lt;br&gt;&quot;)</span><br><span class="line">&#125;</span><br><span class="line">//当执行到i=5时，整个循环终止;</span><br></pre></td></tr></table></figure>
 
+<p>④ continue语句（跳出当前循环，开始下一次循环）;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">	if(i==5)&#123;</span><br><span class="line">		continue</span><br><span class="line">	&#125;</span><br><span class="line">	document.write(i+&quot;&lt;br&gt;&quot;)</span><br><span class="line">&#125;</span><br><span class="line">//当执行到i=5时，跳过当次循环，继续执行下一次i=6;</span><br></pre></td></tr></table></figure>
 
+<h3 id="10、JavaScript函数"><a href="#10、JavaScript函数" class="headerlink" title="10、JavaScript函数"></a>10、JavaScript函数</h3><h4 id="10-1-定义和调用函数"><a href="#10-1-定义和调用函数" class="headerlink" title="10.1 定义和调用函数"></a>10.1 定义和调用函数</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	function func_one()&#123;</span><br><span class="line">		document.write(&quot;这是一个函数&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	func_one();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+<h4 id="10-2-函数传参"><a href="#10-2-函数传参" class="headerlink" title="10.2 函数传参"></a>10.2 函数传参</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function func_two(name,age)&#123;</span><br><span class="line">	document.write(&quot;大家好，我是&quot;+name+&quot;我今年&quot;+age+&quot;岁了&quot;);</span><br><span class="line">&#125;</span><br><span class="line">func_two(&quot;tony&quot;,&quot;18&quot;);</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
+<h4 id="10-3-函数返回值"><a href="#10-3-函数返回值" class="headerlink" title="10.3 函数返回值"></a>10.3 函数返回值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">funciton func_three(num1,num2)&#123;</span><br><span class="line">	return num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line">document.write(func_three(100,50));</span><br></pre></td></tr></table></figure>
 
 
     </div>
