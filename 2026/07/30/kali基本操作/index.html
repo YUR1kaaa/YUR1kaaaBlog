@@ -10,11 +10,14 @@
 
     <!--Description-->
     
-        <meta name="description" content="2.题目：计算器 - Bugku CTF平台
+        <meta name="description" content="kali基本操作
 
-源码没有隐藏flag可以直接看
-
-本题限制在于输入最大长度限制为1，可以F12改源码正常获取flag">
+ls     查看当前目录
+touch     创建文件
+cat     读取文件内容
+echo 123456 &amp;gt;1.txt     输入内容覆盖文件内容
+echo 123456 &amp;gt;&amp;gt;1.txt     输入内容追加文件内容
+rm -f  1.txt     删">
     
 
     <!--Author-->
@@ -24,7 +27,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="计算器"/>
+        <meta property="og:title" content="kali基本操作"/>
     
 
     <!--Open Graph Description-->
@@ -49,7 +52,7 @@
 
     <!-- Title -->
     
-    <title>计算器 - 我是web高手</title>
+    <title>kali基本操作 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -155,18 +158,18 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/07/22/%E8%AE%A1%E7%AE%97%E5%99%A8/">
-                计算器
+            <a href="/YUR1kaaaBlog/2026/07/30/kali%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+                kali基本操作
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2026-07-22</span>
+                <span class="date">2026-07-30</span>
             
             
             
                 <span class="category">
-                    <a href="/YUR1kaaaBlog/categories/Bugku-CTF/">Bugku CTF</a>
+                    <a href="/YUR1kaaaBlog/categories/Learning/">Learning</a>
                 </span>
             
         </div>
@@ -178,11 +181,55 @@
         
 
         <!-- Post Content -->
-        <p>2.题目：<a target="_blank" rel="noopener" href="https://ctf.bugku.com/challenges/detail/id/69.html">计算器 - Bugku CTF平台</a></p>
-<p><img src="/YUR1kaaaBlog/images/jisuanqi1.png"></p>
-<p>源码没有隐藏flag可以直接看</p>
-<p><img src="/YUR1kaaaBlog/images/jisuanqi2.png"></p>
-<p>本题限制在于输入最大长度限制为1，可以F12改源码正常获取flag</p>
+        <h2>kali基本操作</h2>
+
+<p><b>ls</b>     查看当前目录</p>
+<p><b>touch</b>     创建文件</p>
+<p><b>cat</b>     读取文件内容</p>
+<p><b>echo 123456 <strong>&gt;</strong></b>1.txt     输入内容覆盖文件内容</p>
+<p><b>echo 123456 <strong>&gt;&gt;</strong></b>1.txt     输入内容追加文件内容</p>
+<p><b>rm -f</b>  1.txt     删除文件</p>
+<p><b>mkdir</b>  package     创建文件夹（目录）</p>
+<p>**rmdir ** package     删除文件夹</p>
+<h2 id="对文件压缩"><a href="#对文件压缩" class="headerlink" title="对文件压缩:"></a>对文件压缩:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bzip2 1.txt</span><br></pre></td></tr></table></figure>
+
+<p> 压缩文件.bz2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bunzip2 1.txt </span><br></pre></td></tr></table></figure>
+
+<p>解压缩.bz2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip/gunzip </span><br></pre></td></tr></table></figure>
+
+<p> .gz文件 </p>
+<h2 id="对文件压缩-1"><a href="#对文件压缩-1" class="headerlink" title="对文件压缩:"></a>对文件压缩:</h2><h4>rar</h4>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rar a package.rar package</span><br></pre></td></tr></table></figure>
+
+<p>把package文件夹打包成package.rar</p>
+<p>原目录不会消失（文件夹不消失，文件会消失）</p>
+<p>rar不自带，需要下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rar x package.rar</span><br></pre></td></tr></table></figure>
+
+<p>解压package.rar</p>
+<h4>tar</h4>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jcvf 1.tar package</span><br></pre></td></tr></table></figure>
+
+<p>把package添加为1.tar（tar不是压缩）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -tf 1.tar</span><br></pre></td></tr></table></figure>
+
+<p>查看tar包内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jcvf 1.bz2 package</span><br></pre></td></tr></table></figure>
+
+<p>把package添加为1.bz2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf 1.bz2</span><br></pre></td></tr></table></figure>
+
+<p>解压1.bz2</p>
+<p>(tar命令可以做.bz2的压缩，也可以做.tar的非压缩)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf 1.tar.gz package</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf 1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>gzip格式</p>
 
     </div>
 
@@ -191,7 +238,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/web/">#web</a> <a href="/YUR1kaaaBlog/tags/WP/">#WP</a>
+            <a href="/YUR1kaaaBlog/tags/kali基本操作/">#kali基本操作</a>
         </div>
     
 
