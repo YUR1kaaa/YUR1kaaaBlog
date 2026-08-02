@@ -195,7 +195,7 @@ Pass-01源代码：
 <hr>
 <h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
 <h4 id="Pass-01"><a href="#Pass-01" class="headerlink" title="Pass-01"></a>Pass-01</h4><p>源代码：</p>
-<p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802215854447.png" alt="image-20260802215854447"></p>
+<p><img src="/YUR1kaaaBlog/images/image-20260802215854447.png"></p>
 <p>查看页面源代码找到上传文件的form表单</p>
 <p>HTML的form表单是用于收集用户输入数据并发送到服务器的容器</p>
 <p>语法：</p>
@@ -216,12 +216,12 @@ Pass-01源代码：
 <p>到此为止发现Pass-01做的是前端校验，完全在浏览器端用 JS 完成，服务端没有做任何文件类型检查。</p>
 <p><strong><code>checkFile()</code></strong> 只在表单 <strong><code>onsubmit</code></strong> 时触发，绕过前端校验后，服务端照单全收。</p>
 <p>绕过方法如下：</p>
-<h4 id="（1）禁用JS渲染"><a href="#（1）禁用JS渲染" class="headerlink" title="（1）禁用JS渲染"></a>（1）禁用JS渲染</h4><p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802222655504.png" alt="image-20260802222655504"></p>
+<h4 id="（1）禁用JS渲染"><a href="#（1）禁用JS渲染" class="headerlink" title="（1）禁用JS渲染"></a>（1）禁用JS渲染</h4><p><img src="/YUR1kaaaBlog/images/image-20260802222655504.png"></p>
 <p>浏览器 F12 → Settings → 禁用JavaScript，直接上传 webshell</p>
 <h4 id="（2）改前端代码"><a href="#（2）改前端代码" class="headerlink" title="（2）改前端代码"></a>（2）改前端代码</h4><p>ctrl+s 下载源码（静态网站），在编辑器里打开，添加action&#x3D;目标url（因为在原网页中post默认提交给当前页面，即目标url，这里在自己的静态页面下需要指定上传到哪个url）</p>
-<p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802225642027.png" alt="image-20260802225642027"></p>
+<p><img src="/YUR1kaaaBlog/images/image-20260802225642027.png"></p>
 <p>然后改代码判断逻辑或者改js函数，让输出为true即可</p>
-<p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802233509188.png" alt="image-20260802233509188"></p>
+<p><img src="/YUR1kaaaBlog/images/image-20260802233509188.png"></p>
 <h4 id="（3）bp抓包"><a href="#（3）bp抓包" class="headerlink" title="（3）bp抓包"></a>（3）bp抓包</h4><p>Edge + FoxyProxy 默认不拦截本地地址，无法抓包</p>
 <p>具体过程是直接上传合法格式文件，然后抓包改后缀</p>
 
@@ -296,15 +296,15 @@ Pass-01源代码：
         </li>
         
         <li>
-            <a class="footer-post" href="/YUR1kaaaBlog/categories/coding/">coding</a>
-        </li>
-        
-        <li>
             <a class="footer-post" href="/YUR1kaaaBlog/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
         </li>
         
         <li>
             <a class="footer-post" href="/YUR1kaaaBlog/categories/Bugku-CTF/">Bugku CTF</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/tools/">tools</a>
         </li>
         
     </ul>
