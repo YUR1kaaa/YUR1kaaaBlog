@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="文件上传漏洞文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。
+文件上传绕过检测：
+
+操作系统漏洞
+Apache解析漏洞
+图片木马
+
+
+靶场：upload-labs
+Pass-01源代码：
+
+查看页面源代码找到上">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="YUR1kaaa">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="文件上传漏洞"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="我是web高手"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>文件上传漏洞 - 我是web高手</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/YUR1kaaaBlog/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/YUR1kaaaBlog/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/YUR1kaaaBlog/2026/08/03/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">
+                文件上传漏洞
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2026-08-03</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/YUR1kaaaBlog/categories/渗透测试/">渗透测试</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。</p>
+<p>文件上传绕过检测：</p>
+<ul>
+<li>操作系统漏洞</li>
+<li>Apache解析漏洞</li>
+<li>图片木马</li>
+</ul>
+<hr>
+<h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
+<h4 id="Pass-01"><a href="#Pass-01" class="headerlink" title="Pass-01"></a>Pass-01</h4><p>源代码：</p>
+<p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802215854447.png" alt="image-20260802215854447"></p>
+<p>查看页面源代码找到上传文件的form表单</p>
+<p>HTML的form表单是用于收集用户输入数据并发送到服务器的容器</p>
+<p>语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">action</span>=<span class="string">&quot;server.php&quot;</span>      &lt;!<span class="attr">--</span> <span class="attr">数据发送到哪个URL</span> <span class="attr">--</span>&gt;</span></span><br><span class="line">    method=&quot;post&quot;            <span class="comment">&lt;!-- 发送方式：get/post --&gt;</span></span><br><span class="line">    enctype=&quot;multipart/form-data&quot; <span class="comment">&lt;!-- 编码类型 --&gt;</span></span><br><span class="line">    target=&quot;_blank&quot;          <span class="comment">&lt;!-- 在哪里打开响应 --&gt;</span></span><br><span class="line">    autocomplete=&quot;on&quot;        <span class="comment">&lt;!-- 自动完成 --&gt;</span></span><br><span class="line">    novalidate               <span class="comment">&lt;!-- 不验证 --&gt;</span></span><br><span class="line">&gt;</span><br><span class="line">    <span class="comment">&lt;!-- 表单控件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>本Pass中：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">onsubmit</span>=<span class="string">&quot;return checkFile()&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>请选择要上传的图片：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;input_file&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload_file&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上传文件后提交，触发 <strong><code>checkFile()</code></strong> 函数</p>
+<p>在源代码中找这个函数的JavaScript代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">checkFile</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> file = <span class="variable language_">document</span>.<span class="title function_">getElementsByName</span>(<span class="string">&#x27;upload_file&#x27;</span>)[<span class="number">0</span>].<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">null</span> || file == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&quot;请选择要上传的文件!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定义允许上传的文件类型</span></span><br><span class="line">    <span class="keyword">var</span> allow_ext = <span class="string">&quot;.jpg|.png|.gif&quot;</span>;</span><br><span class="line">    <span class="comment">//提取上传文件的类型</span></span><br><span class="line">    <span class="keyword">var</span> ext_name = file.<span class="title function_">substring</span>(file.<span class="title function_">lastIndexOf</span>(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">    <span class="comment">//判断上传文件类型是否允许上传</span></span><br><span class="line">    <span class="keyword">if</span> (allow_ext.<span class="title function_">indexOf</span>(ext_name + <span class="string">&quot;|&quot;</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> errMsg = <span class="string">&quot;该文件不允许上传，请上传&quot;</span> + allow_ext + <span class="string">&quot;类型的文件,当前文件类型为：&quot;</span> + ext_name;</span><br><span class="line">        <span class="title function_">alert</span>(errMsg);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>getElementsByName(&#39;upload_file&#39;)</code></strong> 获取所有 <strong><code>name</code></strong> 属性值为 <strong><code>upload_file</code></strong> 的元素集合，然后取第一个获取其value（文件路径）;</p>
+<p>**<code>file.lastIndexOf(&quot;.&quot;)</code>**：查找最后一个 <strong><code>.</code></strong> 的索引；</p>
+<p>**<code>file.substring(index)</code>**：从指定索引位置截取到字符串末尾（从 “ <strong>.</strong> “ 截取文件后缀，判断类型）;</p>
+<p>**<code>indexOf(sub_str)</code>**：查找子字符串位置，找不到返回-1；</p>
+<hr>
+<p>到此为止发现Pass-01做的是前端校验，完全在浏览器端用 JS 完成，服务端没有做任何文件类型检查。</p>
+<p><strong><code>checkFile()</code></strong> 只在表单 <strong><code>onsubmit</code></strong> 时触发，绕过前端校验后，服务端照单全收。</p>
+<p>绕过方法如下：</p>
+<h4 id="（1）禁用JS渲染"><a href="#（1）禁用JS渲染" class="headerlink" title="（1）禁用JS渲染"></a>（1）禁用JS渲染</h4><p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802222655504.png" alt="image-20260802222655504"></p>
+<p>浏览器 F12 → Settings → 禁用JavaScript，直接上传 webshell</p>
+<h4 id="（2）改前端代码"><a href="#（2）改前端代码" class="headerlink" title="（2）改前端代码"></a>（2）改前端代码</h4><p>ctrl+s 下载源码（静态网站），在编辑器里打开，添加action&#x3D;目标url（因为在原网页中post默认提交给当前页面，即目标url，这里在自己的静态页面下需要指定上传到哪个url）</p>
+<p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802225642027.png" alt="image-20260802225642027"></p>
+<p>然后改代码判断逻辑或者改js函数，让输出为true即可</p>
+<p><img src="C:\Users\邹丰璠\AppData\Roaming\Typora\typora-user-images\image-20260802233509188.png" alt="image-20260802233509188"></p>
+<h4 id="（3）bp抓包"><a href="#（3）bp抓包" class="headerlink" title="（3）bp抓包"></a>（3）bp抓包</h4><p>Edge + FoxyProxy 默认不拦截本地地址，无法抓包</p>
+<p>具体过程是直接上传合法格式文件，然后抓包改后缀</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/03/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">文件上传漏洞</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/02/php/">php</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/01/hydra%20%E4%B9%9D%E5%A4%B4%E8%9B%87/">hydra 九头蛇</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/01/%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%88%86%E7%A0%B4/">弱口令爆破</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/Coding/">Coding</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/coding/">coding</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/Bugku-CTF/">Bugku CTF</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/YUR1kaaaBlog/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

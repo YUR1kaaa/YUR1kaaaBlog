@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="一、文件系统函数 (File System)1. 文件基本信息操作1234567891011filesize($filename);          // 获取文件大小（字节）filetype($filename);          // 获取文件类型file_exists($filename)">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="YUR1kaaa">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="php"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="我是web高手"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>php - 我是web高手</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/YUR1kaaaBlog/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/YUR1kaaaBlog/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/YUR1kaaaBlog/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/YUR1kaaaBlog/2026/08/02/php/">
+                php
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2026-08-02</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/YUR1kaaaBlog/categories/coding/">coding</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h3 id="一、文件系统函数-File-System"><a href="#一、文件系统函数-File-System" class="headerlink" title="一、文件系统函数 (File System)"></a>一、文件系统函数 (File System)</h3><h4 id="1-文件基本信息操作"><a href="#1-文件基本信息操作" class="headerlink" title="1. 文件基本信息操作"></a>1. 文件基本信息操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">filesize($filename);          // 获取文件大小（字节）</span><br><span class="line">filetype($filename);          // 获取文件类型</span><br><span class="line">file_exists($filename);       // 检查文件是否存在</span><br><span class="line">is_file($filename);           // 判断是否为文件</span><br><span class="line">is_dir($filename);            // 判断是否为目录</span><br><span class="line">is_readable($filename);       // 判断是否可读</span><br><span class="line">is_writable($filename);       // 判断是否可写</span><br><span class="line">is_executable($filename);     // 判断是否可执行</span><br><span class="line">fileatime($filename);         // 获取最后访问时间</span><br><span class="line">filemtime($filename);         // 获取最后修改时间</span><br><span class="line">filectime($filename);         // 获取创建时间</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-文件读取操作"><a href="#2-文件读取操作" class="headerlink" title="2. 文件读取操作"></a>2. 文件读取操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">file_get_contents($filename);           // 读取整个文件到字符串</span><br><span class="line">file($filename);                        // 读取文件到数组（每行一个元素）</span><br><span class="line">readfile($filename);                    // 读取文件并输出到缓冲区</span><br><span class="line">fopen($filename, &#x27;r&#x27;);                 // 打开文件（返回资源）</span><br><span class="line">fread($handle, $length);              // 读取指定长度</span><br><span class="line">fgets($handle);                        // 读取一行</span><br><span class="line">fgetcsv($handle);                      // 读取CSV格式</span><br><span class="line">fgetss($handle);                       // 读取并去除HTML标签</span><br><span class="line">fclose($handle);                       // 关闭文件</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-文件写入操作"><a href="#3-文件写入操作" class="headerlink" title="3. 文件写入操作"></a>3. 文件写入操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file_put_contents($filename, $data);    // 写入字符串到文件</span><br><span class="line">fwrite($handle, $string);              // 写入文件</span><br><span class="line">fputs($handle, $string);               // fwrite的别名</span><br><span class="line">fputcsv($handle, $fields);             // 写入CSV格式</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-文件操作"><a href="#4-文件操作" class="headerlink" title="4. 文件操作"></a>4. 文件操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 文件操作</span><br><span class="line">copy($source, $dest);                  // 复制文件</span><br><span class="line">rename($oldname, $newname);           // 重命名/移动文件</span><br><span class="line">unlink($filename);                     // 删除文件</span><br><span class="line">basename($path);                       // 获取文件名</span><br><span class="line">dirname($path);                        // 获取目录名</span><br><span class="line">pathinfo($path);                       // 获取路径信息（数组）</span><br><span class="line">realpath($path);                       // 获取绝对路径</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-目录操作"><a href="#5-目录操作" class="headerlink" title="5. 目录操作"></a>5. 目录操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir($pathname, $mode, $recursive);   // 创建目录</span><br><span class="line">rmdir($dirname);                       // 删除空目录</span><br><span class="line">scandir($directory);                   // 列出目录内容</span><br><span class="line">opendir($path);                        // 打开目录句柄</span><br><span class="line">readdir($handle);                      // 读取目录条目</span><br><span class="line">closedir($handle);                     // 关闭目录句柄</span><br><span class="line">getcwd();                              // 获取当前工作目录</span><br><span class="line">chdir($directory);                     // 改变当前目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-文件上传处理"><a href="#6-文件上传处理" class="headerlink" title="6. 文件上传处理"></a>6. 文件上传处理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// $_FILES 超全局数组</span><br><span class="line">$_FILES[&#x27;file&#x27;][&#x27;name&#x27;];               // 原始文件名</span><br><span class="line">$_FILES[&#x27;file&#x27;][&#x27;type&#x27;];               // 文件MIME类型</span><br><span class="line">$_FILES[&#x27;file&#x27;][&#x27;size&#x27;];               // 文件大小</span><br><span class="line">$_FILES[&#x27;file&#x27;][&#x27;tmp_name&#x27;];          // 临时文件名</span><br><span class="line">$_FILES[&#x27;file&#x27;][&#x27;error&#x27;];             // 错误码</span><br><span class="line"></span><br><span class="line">// 移动上传文件</span><br><span class="line">move_uploaded_file($tmp_name, $destination);</span><br><span class="line">is_uploaded_file($filename);           // 判断是否HTTP上传文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、DOM操作-Document-Object"><a href="#二、DOM操作-Document-Object" class="headerlink" title="二、DOM操作 (Document Object)"></a>二、DOM操作 (Document Object)</h3><h4 id="1-DOMDocument-类"><a href="#1-DOMDocument-类" class="headerlink" title="1. DOMDocument 类"></a>1. DOMDocument 类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 创建DOM对象</span><br><span class="line">$dom = new DOMDocument();</span><br><span class="line">$dom = new DOMDocument(&#x27;1.0&#x27;, &#x27;UTF-8&#x27;);</span><br><span class="line"></span><br><span class="line">// 加载文档</span><br><span class="line">$dom-&gt;load(&#x27;file.xml&#x27;);                // 从文件加载</span><br><span class="line">$dom-&gt;loadXML($xmlString);            // 从字符串加载</span><br><span class="line">$dom-&gt;loadHTML($htmlString);          // 加载HTML</span><br><span class="line">$dom-&gt;loadHTMLFile(&#x27;file.html&#x27;);      // 从HTML文件加载</span><br><span class="line"></span><br><span class="line">// 保存文档</span><br><span class="line">$dom-&gt;save(&#x27;file.xml&#x27;);               // 保存到文件</span><br><span class="line">$dom-&gt;saveXML();                       // 返回XML字符串</span><br><span class="line">$dom-&gt;saveHTML();                      // 返回HTML字符串</span><br><span class="line"></span><br><span class="line">// 创建节点</span><br><span class="line">$dom-&gt;createElement(&#x27;tag&#x27;);            // 创建元素</span><br><span class="line">$dom-&gt;createTextNode(&#x27;text&#x27;);          // 创建文本节点</span><br><span class="line">$dom-&gt;createAttribute(&#x27;attr&#x27;);         // 创建属性</span><br><span class="line">$dom-&gt;createComment(&#x27;comment&#x27;);        // 创建注释</span><br><span class="line">$dom-&gt;createCDATASection(&#x27;data&#x27;);      // 创建CDATA节</span><br><span class="line"></span><br><span class="line">// 查询节点</span><br><span class="line">$dom-&gt;getElementById(&#x27;id&#x27;);            // 通过ID获取</span><br><span class="line">$dom-&gt;getElementsByTagName(&#x27;tag&#x27;);     // 通过标签名获取</span><br><span class="line">$dom-&gt;getElementsByTagNameNS(&#x27;ns&#x27;, &#x27;tag&#x27;); // 带命名空间</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-DOMNode-方法"><a href="#2-DOMNode-方法" class="headerlink" title="2. DOMNode 方法"></a>2. DOMNode 方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$node-&gt;appendChild($newNode);          // 添加子节点</span><br><span class="line">$node-&gt;removeChild($child);            // 移除子节点</span><br><span class="line">$node-&gt;replaceChild($new, $old);      // 替换子节点</span><br><span class="line">$node-&gt;insertBefore($new, $ref);      // 在指定节点前插入</span><br><span class="line">$node-&gt;cloneNode($deep);              // 克隆节点</span><br><span class="line">$node-&gt;hasChildNodes();                // 是否有子节点</span><br><span class="line">$node-&gt;hasAttributes();                // 是否有属性</span><br><span class="line">$node-&gt;normalize();                    // 规范化节点</span><br><span class="line">$node-&gt;removeChild($child);            // 删除子节点</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-DOMElement-方法"><a href="#3-DOMElement-方法" class="headerlink" title="3. DOMElement 方法"></a>3. DOMElement 方法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$element-&gt;getAttribute(&#x27;name&#x27;);        // 获取属性值</span><br><span class="line">$element-&gt;setAttribute(&#x27;name&#x27;, &#x27;value&#x27;); // 设置属性</span><br><span class="line">$element-&gt;removeAttribute(&#x27;name&#x27;);     // 移除属性</span><br><span class="line">$element-&gt;hasAttribute(&#x27;name&#x27;);        // 检查属性是否存在</span><br><span class="line">$element-&gt;getAttributeNS(&#x27;ns&#x27;, &#x27;name&#x27;); // 命名空间属性</span><br><span class="line">$element-&gt;setAttributeNS(&#x27;ns&#x27;, &#x27;name&#x27;, &#x27;value&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-DOMXPath-查询"><a href="#4-DOMXPath-查询" class="headerlink" title="4. DOMXPath 查询"></a>4. DOMXPath 查询</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$xpath = new DOMXPath($dom);</span><br><span class="line">$xpath-&gt;query(&#x27;//div[@class=&quot;test&quot;]&#x27;);  // XPath查询</span><br><span class="line">$xpath-&gt;evaluate(&#x27;count(//div)&#x27;);      // XPath计算</span><br><span class="line">$xpath-&gt;registerNamespace(&#x27;prefix&#x27;, &#x27;uri&#x27;); // 注册命名空间</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、SimpleXML-扩展"><a href="#三、SimpleXML-扩展" class="headerlink" title="三、SimpleXML 扩展"></a>三、SimpleXML 扩展</h3><h4 id="SimpleXML-操作"><a href="#SimpleXML-操作" class="headerlink" title="SimpleXML 操作"></a>SimpleXML 操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 加载XML</span><br><span class="line">$xml = simplexml_load_file(&#x27;file.xml&#x27;);</span><br><span class="line">$xml = simplexml_load_string($xmlString);</span><br><span class="line"></span><br><span class="line">// 访问元素</span><br><span class="line">$xml-&gt;item;                            // 访问子元素</span><br><span class="line">$xml-&gt;item[&#x27;attribute&#x27;];              // 访问属性</span><br><span class="line">$xml-&gt;item[0];                        // 访问第一个item</span><br><span class="line"></span><br><span class="line">// 遍历</span><br><span class="line">foreach ($xml-&gt;children() as $child) &#123; &#125;</span><br><span class="line">foreach ($xml-&gt;attributes() as $attr) &#123; &#125;</span><br><span class="line"></span><br><span class="line">// XPath查询</span><br><span class="line">$xml-&gt;xpath(&#x27;//item&#x27;);</span><br><span class="line"></span><br><span class="line">// 转换为DOM</span><br><span class="line">$dom = dom_import_simplexml($xml);</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、常用文件操作示例"><a href="#四、常用文件操作示例" class="headerlink" title="四、常用文件操作示例"></a>四、常用文件操作示例</h3><h4 id="读取文件示例"><a href="#读取文件示例" class="headerlink" title="读取文件示例"></a>读取文件示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 方式1：直接读取</span><br><span class="line">$content = file_get_contents(&#x27;test.txt&#x27;);</span><br><span class="line"></span><br><span class="line">// 方式2：逐行读取</span><br><span class="line">$handle = fopen(&#x27;test.txt&#x27;, &#x27;r&#x27;);</span><br><span class="line">while (!feof($handle)) &#123;</span><br><span class="line">    $line = fgets($handle);</span><br><span class="line">    echo $line;</span><br><span class="line">&#125;</span><br><span class="line">fclose($handle);</span><br><span class="line"></span><br><span class="line">// 方式3：读取到数组</span><br><span class="line">$lines = file(&#x27;test.txt&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="写入文件示例"><a href="#写入文件示例" class="headerlink" title="写入文件示例"></a>写入文件示例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 方式1：直接写入</span><br><span class="line">file_put_contents(&#x27;test.txt&#x27;, &#x27;Hello World&#x27;);</span><br><span class="line"></span><br><span class="line">// 方式2：追加模式</span><br><span class="line">file_put_contents(&#x27;test.txt&#x27;, &#x27;New Content&#x27;, FILE_APPEND);</span><br><span class="line"></span><br><span class="line">// 方式3：使用句柄</span><br><span class="line">$handle = fopen(&#x27;test.txt&#x27;, &#x27;w&#x27;);</span><br><span class="line">fwrite($handle, &#x27;Hello World&#x27;);</span><br><span class="line">fclose($handle);</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/YUR1kaaaBlog/tags/php/">#php</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/03/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">文件上传漏洞</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/02/php/">php</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/01/hydra%20%E4%B9%9D%E5%A4%B4%E8%9B%87/">hydra 九头蛇</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/01/%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%88%86%E7%A0%B4/">弱口令爆破</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/Coding/">Coding</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/coding/">coding</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/Bugku-CTF/">Bugku CTF</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/YUR1kaaaBlog/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
