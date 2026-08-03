@@ -10,11 +10,17 @@
 
     <!--Description-->
     
-        <meta name="description" content="直扫    
-1dirb http://x.x.x.x:xxxxx 
+        <meta name="description" content="文件上传漏洞文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。
+文件上传绕过检测：
 
-特定后缀：
-1dirb http://target -X (.bak,.old,.zip)">
+操作系统漏洞
+Apache解析漏洞
+图片木马
+
+
+靶场：upload-labs
+Pass-02上传表单源码：
+12345&amp;lt">
     
 
     <!--Author-->
@@ -24,7 +30,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="dirb"/>
+        <meta property="og:title" content="文件上传漏洞 Pass-02"/>
     
 
     <!--Open Graph Description-->
@@ -49,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>dirb - 我是web高手</title>
+    <title>文件上传漏洞 Pass-02 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -155,18 +161,18 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/07/30/dirb/">
-                dirb
+            <a href="/YUR1kaaaBlog/2026/08/03/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-02/">
+                文件上传漏洞 Pass-02
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2026-07-30</span>
+                <span class="date">2026-08-03</span>
             
             
             
                 <span class="category">
-                    <a href="/YUR1kaaaBlog/categories/tools/">tools</a>
+                    <a href="/YUR1kaaaBlog/categories/文件上传漏洞/">文件上传漏洞</a>
                 </span>
             
         </div>
@@ -178,12 +184,42 @@
         
 
         <!-- Post Content -->
-        <p><big><strong>直扫</strong></big>    </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://x.x.x.x:xxxxx </span><br></pre></td></tr></table></figure>
+        <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。</p>
+<p>文件上传绕过检测：</p>
+<ul>
+<li>操作系统漏洞</li>
+<li>Apache解析漏洞</li>
+<li>图片木马</li>
+</ul>
+<hr>
+<h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
+<h4 id="Pass-02"><a href="#Pass-02" class="headerlink" title="Pass-02"></a>Pass-02</h4><p>上传表单源码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">onsubmit</span>=<span class="string">&quot;return checkFile()&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>请选择要上传的图片：<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;input_file&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload_file&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><big><strong>特定后缀</strong></big>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://target -X (.bak,.old,.zip)</span><br></pre></td></tr></table></figure>
+<p>php校验代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$is_upload</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="variable">$msg</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;submit&#x27;</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">file_exists</span>(UPLOAD_PATH)) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/jpeg&#x27;</span>) || (<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/png&#x27;</span>) || (<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;image/gif&#x27;</span>)) &#123;</span><br><span class="line">            <span class="variable">$temp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">            <span class="variable">$img_path</span> = UPLOAD_PATH . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]            </span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$temp_file</span>, <span class="variable">$img_path</span>)) &#123;</span><br><span class="line">                <span class="variable">$is_upload</span> = <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="variable">$msg</span> = <span class="string">&#x27;上传出错！&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$msg</span> = <span class="string">&#x27;文件类型不正确，请重新上传！&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable">$msg</span> = UPLOAD_PATH.<span class="string">&#x27;文件夹不存在,请手工创建！&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong><code>if (isset($_POST[&#39;submit&#39;]))</code></strong> ： <strong><code>isset()</code></strong> 用来检测某个变量&#x2F;参数是否存在、不为空；</p>
+<p><strong><code>$_POST</code></strong> 、**<code>$_FILES</code>** 等以  <strong><code>$_</code></strong>  声明的变量通常为PHP预设的超全局变量，**<code>$_POST[&#39;submit&#39;]</code>** 专门用来获取前端表单以POST方式提交的名为<code>submit</code>的参数，**<code>$_FILES</code>** 存储了本次上传文件的所有相关信息；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$temp_file = $_FILES[&#x27;upload_file&#x27;][&#x27;tmp_name&#x27;];</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>[&#39;tmp_name&#39;]</code></strong> 是 <strong><code>$_FILES</code></strong> 数组的固定下标，存储的是文件上传到服务器之后，PHP自动把它存放的临时文件路径，此处把上传后生成的临时文件路径赋值给变量 **<code>$temp_file</code>**；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$img_path = UPLOAD_PATH . &#x27;/&#x27; . $_FILES[&#x27;upload_file&#x27;][&#x27;name&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>&quot;.&quot;</code></strong> 是php特有的拼接字符串方法，**<code>[&#39;name&#39;]</code>** 是 <strong><code>$_FILES</code></strong> 数组的固定下标，存储的是用户本地上传文件的原始文件名。这句代码拼接出上传之后文件在服务器上保存的完整路径</p>
+<p><strong><code>move_uploaded_file</code></strong>  作用是把指定的临时上传文件，移动到你指定的目标正式路径下。移动成功返回布尔值**<code>true</code>** ，失败返回 **<code>false</code>**；</p>
+<hr>
+<p>本Pass做的是 <strong>MIME校验</strong> ；</p>
+<p>MIME类型是用来标识互联网上文件&#x2F;内容类型的标准化字符串，比如<code>.jpg</code> 图片的是 **<code>image/jpeg</code>**，<code>.png</code> 图片是 **<code>image/png</code>**，<code>.php</code> 脚本是 **<code>application/x-httpd-php</code>**；</p>
+<p><code>$_FILES[&#39;upload_file&#39;][&#39;type&#39;]</code> 取到的就是上传文件的MIME标签，这段代码只允许 <code>image/jpeg</code>、<code>image/png</code>、<code>image/gif</code> 这三类图片的标签。而HTTP请求头里的 <code>Content-Type</code> 字段代表浏览器宣称的这个文件的MIME类型。</p>
+<p>所以bp拦截抓包改MIME标签就能实现绕过</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260803234636580.png"></p>
+<p>上传一个不合法的类型但是拦截，修改 Type 为 <code>image/jpeg</code> </p>
+<p>注意上下有两个 <code>Content-Type</code> ：</p>
+<p>顶层 <code>HTTP Content-Type</code>告诉服务器整个请求体是 <code>multipart/form-data</code> 格式，用 <code>boundary=----xxx</code> 作为分隔符”。区分请求体内各个字段（文件字段、普通字段等）。</p>
+<p>文件部分内部的 <code>Content-Type</code>嵌在请求体中某个 <code>boundary</code> 段之内，描述单个文件的 <code>MIME</code> 类型。PHP 的 <code>$_FILES[&#39;upload_file&#39;][&#39;type&#39;]</code> 读的就是这个值。</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260803234918398.png"></p>
+<p>绕过成功</p>
 
     </div>
 
@@ -192,7 +228,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/dirb/">#dirb</a>
+            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a> <a href="/YUR1kaaaBlog/tags/Pass-02/">#Pass-02</a>
         </div>
     
 
