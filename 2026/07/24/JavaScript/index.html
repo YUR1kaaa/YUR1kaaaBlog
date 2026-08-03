@@ -188,9 +188,9 @@
 <p>①第一个字符必须是字母、下划线（_）或美元符号（￥）;</p>
 <p>②除第一个字符外，其他位置可以使用Unicode字符。</p>
 <p>③不能与js关键字、保留字重名</p>
-<h4 id="3-2-关键字和保留字"><a href="#3-2-关键字和保留字" class="headerlink" title="3.2 关键字和保留字"></a>3.2 关键字和保留字</h4><p><img src="/YUR1kaaaBlog/images/js-keywords.png"></p>
+<h4 id="3-2-关键字和保留字"><a href="#3-2-关键字和保留字" class="headerlink" title="3.2 关键字和保留字"></a>3.2 关键字和保留字</h4><p><img src="/YUR1kaaaBlog/images/js-keywords.jpg"></p>
 <p>关键字（Keyword）有特定用途</p>
-<p><img src="/YUR1kaaaBlog/images/js-reserved-words.png"></p>
+<p><img src="/YUR1kaaaBlog/images/js-reserved-words.jpg"></p>
 <p>保留字是javascript内部预备使用的一组名字，目前没有具体用途，是为js升级预备用的</p>
 <h4 id="3-3-大小写"><a href="#3-3-大小写" class="headerlink" title="3.3 大小写"></a>3.3 大小写</h4><p>JavaScript标识符严格区分大小写</p>
 <hr>
@@ -247,19 +247,19 @@
 <p>函数不会自动运行，需要通过函数名调用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sayHello(name)&#123;</span><br><span class="line">	return &quot;Hello,&quot; + name;</span><br><span class="line">&#125;</span><br><span class="line">var res = sayHello(&quot;Peter&quot;);</span><br><span class="line">console.log(res);   // 输出Hello，Peter</span><br></pre></td></tr></table></figure>
 
-<h3 id="7、运算符"><a href="#7、运算符" class="headerlink" title="7、运算符"></a>7、运算符</h3><h4 id="7-1-算数运算符"><a href="#7-1-算数运算符" class="headerlink" title="7.1 算数运算符"></a>7.1 算数运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730211100861.png"></p>
+<h3 id="7、运算符"><a href="#7、运算符" class="headerlink" title="7、运算符"></a>7、运算符</h3><h4 id="7-1-算数运算符"><a href="#7-1-算数运算符" class="headerlink" title="7.1 算数运算符"></a>7.1 算数运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730211100861.jpg"></p>
 <p>其中 <code>/</code> 是正常小数除法（不是整除），<code>%</code> 是取余</p>
-<h4 id="7-2-赋值运算符"><a href="#7-2-赋值运算符" class="headerlink" title="7.2 赋值运算符"></a>7.2 赋值运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730212313902.png"></p>
+<h4 id="7-2-赋值运算符"><a href="#7-2-赋值运算符" class="headerlink" title="7.2 赋值运算符"></a>7.2 赋值运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730212313902.jpg"></p>
 <h3 id="7-3-字符串运算符"><a href="#7-3-字符串运算符" class="headerlink" title="7.3 字符串运算符"></a>7.3 字符串运算符</h3><p><strong><code>+</code></strong> 运算符可以将左右两侧字符串拼接到一起；</p>
 <p><strong><code>+=</code></strong> 表示先将字符串拼接，再将结果赋值给左侧变量；</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var x = &quot;Hello&quot;；</span><br><span class="line">var y = &quot;World&quot;；</span><br><span class="line">var z = x + y；</span><br><span class="line">console.log(x);   //输出:Hello World!</span><br><span class="line">x += y;</span><br><span class="line">console.log(x);   //输出:Hello World!</span><br></pre></td></tr></table></figure>
 
-<h4 id="7-4-自增、自减运算符"><a href="#7-4-自增、自减运算符" class="headerlink" title="7.4 自增、自减运算符"></a>7.4 自增、自减运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730213203481.png"></p>
+<h4 id="7-4-自增、自减运算符"><a href="#7-4-自增、自减运算符" class="headerlink" title="7.4 自增、自减运算符"></a>7.4 自增、自减运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730213203481.jpg"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var num1,num2 = 10,4;</span><br><span class="line">document.write(num1++);   //输出:10</span><br><span class="line">document.write(num1);     //输出:11</span><br><span class="line">//先返回num1的值(10)，在将num1的值加1(但不输出)。</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.write(++num1);   //输出:11</span><br><span class="line">//先将num1的值加1，然后返回num1。</span><br></pre></td></tr></table></figure>
 
-<h4 id="7-5-比较运算符"><a href="#7-5-比较运算符" class="headerlink" title="7.5 比较运算符"></a>7.5 比较运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730214120672.png"></p>
+<h4 id="7-5-比较运算符"><a href="#7-5-比较运算符" class="headerlink" title="7.5 比较运算符"></a>7.5 比较运算符</h4><p><img src="/YUR1kaaaBlog/images/image-20260730214120672.jpg"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x == y；</span><br></pre></td></tr></table></figure>
 
 <p>x 和 y 值相等 </p>
