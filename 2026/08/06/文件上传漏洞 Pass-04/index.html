@@ -10,11 +10,16 @@
 
     <!--Description-->
     
-        <meta name="description" content="直扫    
-1dirb http://x.x.x.x:xxxxx 
+        <meta name="description" content="文件上传漏洞文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。
+文件上传绕过检测：
 
-特定后缀：
-1dirb http://target -X (.bak,.old,.zip)">
+操作系统漏洞
+Apache解析漏洞
+图片木马
+
+
+靶场：upload-labs
+Pass-04本Pass黑名单做了补全，无法通">
     
 
     <!--Author-->
@@ -24,7 +29,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="dirb"/>
+        <meta property="og:title" content="文件上传漏洞 Pass-04"/>
     
 
     <!--Open Graph Description-->
@@ -49,7 +54,7 @@
 
     <!-- Title -->
     
-    <title>dirb - 我是web高手</title>
+    <title>文件上传漏洞 Pass-04 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -155,18 +160,18 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/07/30/dirb/">
-                dirb
+            <a href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-04/">
+                文件上传漏洞 Pass-04
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2026-07-30</span>
+                <span class="date">2026-08-06</span>
             
             
             
                 <span class="category">
-                    <a href="/YUR1kaaaBlog/categories/tools/">tools</a>
+                    <a href="/YUR1kaaaBlog/categories/文件上传漏洞/">文件上传漏洞</a>
                 </span>
             
         </div>
@@ -178,12 +183,26 @@
         
 
         <!-- Post Content -->
-        <p><big><strong>直扫</strong></big>    </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://x.x.x.x:xxxxx </span><br></pre></td></tr></table></figure>
+        <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。</p>
+<p>文件上传绕过检测：</p>
+<ul>
+<li>操作系统漏洞</li>
+<li>Apache解析漏洞</li>
+<li>图片木马</li>
+</ul>
+<hr>
+<h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
+<h4 id="Pass-04"><a href="#Pass-04" class="headerlink" title="Pass-04"></a>Pass-04</h4><p>本Pass黑名单做了补全，无法通过php12345等后缀名来绕过；</p>
+<p>但黑名单防脚本后缀，没有拒绝 Apache 的配置文件；</p>
+<p><strong><code>.htaccess</code></strong> 是 Apache Web 服务器的目录级配置文件，用来覆盖apache的全局配置，它放在某个目录里，只对该目录及其子目录生效；</p>
+<p>写一个 <strong>文件名</strong> 为 <strong><code>.htaccess</code></strong> 内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .png</span><br></pre></td></tr></table></figure>
 
-<p><big><strong>特定后缀</strong></big>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://target -X (.bak,.old,.zip)</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddHandler application/x-httpd-php .png</span><br></pre></td></tr></table></figure>
 
+<p>让服务器把png当成php处理；</p>
+<p>然后传shell，成功；</p>
 
     </div>
 
@@ -192,7 +211,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/dirb/">#dirb</a>
+            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a> <a href="/YUR1kaaaBlog/tags/Pass-04/">#Pass-04</a>
         </div>
     
 
