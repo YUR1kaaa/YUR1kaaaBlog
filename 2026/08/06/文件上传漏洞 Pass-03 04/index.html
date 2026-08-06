@@ -30,7 +30,7 @@ Pass-03校验代码：
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="文件上传漏洞 Pass-03"/>
+        <meta property="og:title" content="文件上传漏洞 Pass-03/04"/>
     
 
     <!--Open Graph Description-->
@@ -55,7 +55,7 @@ Pass-03校验代码：
 
     <!-- Title -->
     
-    <title>文件上传漏洞 Pass-03 - 我是web高手</title>
+    <title>文件上传漏洞 Pass-03/04 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -161,8 +161,8 @@ Pass-03校验代码：
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-03/">
-                文件上传漏洞 Pass-03
+            <a href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-03%2004/">
+                文件上传漏洞 Pass-03/04
             </a>
         </h1>
         <div class="post-info">
@@ -213,6 +213,18 @@ Pass-03校验代码：
 <p>本Pass只做后缀黑名单校验，因此不能上传php shell</p>
 <p>但apache服务器可以解析 <code>.php</code> 、 <code>.php3</code> 、 <code>.phtml</code> 等后缀，并作为PHP执行</p>
 <p>改shell后缀为php3即可绕过</p>
+<hr>
+<h4 id="Pass-04"><a href="#Pass-04" class="headerlink" title="Pass-04"></a>Pass-04</h4><p>本Pass黑名单做了补全，无法通过php12345等后缀名来绕过；</p>
+<p>但黑名单防脚本后缀，没有拒绝 Apache 的配置文件；</p>
+<p><strong><code>.htaccess</code></strong> 是 Apache Web 服务器的目录级配置文件，用来覆盖apache的全局配置，它放在某个目录里，只对该目录及其子目录生效；</p>
+<p>写一个 <strong>文件名</strong> 为 <strong><code>.htaccess</code></strong> 内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .png</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddHandler application/x-httpd-php .png</span><br></pre></td></tr></table></figure>
+
+<p>让服务器把png当成php处理；</p>
+<p>然后传shell，成功；</p>
 
     </div>
 
@@ -221,7 +233,7 @@ Pass-03校验代码：
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a> <a href="/YUR1kaaaBlog/tags/Pass-03/">#Pass-03</a>
+            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a> <a href="/YUR1kaaaBlog/tags/Pass-03/">#Pass-03</a> <a href="/YUR1kaaaBlog/tags/Pass-04/">#Pass-04</a>
         </div>
     
 
@@ -255,11 +267,7 @@ Pass-03校验代码：
         <ul>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-03/">文件上传漏洞 Pass-03</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-04/">文件上传漏洞 Pass-04</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-03%2004/">文件上传漏洞 Pass-03/04</a>
             </li>
             
             <li>
@@ -268,6 +276,10 @@ Pass-03校验代码：
             
             <li>
                 <a class="footer-post" href="/YUR1kaaaBlog/2026/08/03/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-02/">文件上传漏洞 Pass-02</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/02/php/">php</a>
             </li>
             
         </ul>
@@ -293,7 +305,7 @@ Pass-03校验代码：
         </li>
         
         <li>
-            <a class="footer-post" href="/YUR1kaaaBlog/categories/tools/">tools</a>
+            <a class="footer-post" href="/YUR1kaaaBlog/categories/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/">文件上传漏洞</a>
         </li>
         
     </ul>
