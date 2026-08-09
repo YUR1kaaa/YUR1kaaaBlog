@@ -30,7 +30,7 @@ Pass-03校验代码：
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="文件上传漏洞 Pass-03/04"/>
+        <meta property="og:title" content="文件上传漏洞 Pass-03-08 黑名单绕过"/>
     
 
     <!--Open Graph Description-->
@@ -55,7 +55,7 @@ Pass-03校验代码：
 
     <!-- Title -->
     
-    <title>文件上传漏洞 Pass-03/04 - 我是web高手</title>
+    <title>文件上传漏洞 Pass-03-08 黑名单绕过 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -161,8 +161,8 @@ Pass-03校验代码：
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-03%2004/">
-                文件上传漏洞 Pass-03/04
+            <a href="/YUR1kaaaBlog/2026/08/06/upload%20Pass-03-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">
+                文件上传漏洞 Pass-03-08 黑名单绕过
             </a>
         </h1>
         <div class="post-info">
@@ -209,10 +209,13 @@ Pass-03校验代码：
 <p>​	这一行代码获取的是临时文件名称</p>
 <p><strong><code>date(&quot;YmdHis&quot;)</code></strong> 生成时间戳；</p>
 <p><strong><code>move_uploaded_file(start, end)</code></strong> 把文件从 <code>start</code> 位置（路径）移动到 <code>end</code>，这个函数返回 <code>true</code> （成功）或 <code>false</code> （失败）;</p>
-<hr>
 <p>本Pass只做后缀黑名单校验，因此不能上传php shell</p>
 <p>但apache服务器可以解析 <code>.php</code> 、 <code>.php3</code> 、 <code>.phtml</code> 等后缀，并作为PHP执行</p>
 <p>改shell后缀为php3即可绕过</p>
+<p>补充：关于 <code>::$DATA</code> ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file_ext = str_ireplace(&#x27;::$DATA&#x27;, &#x27;&#x27;, $file_ext);   //去除字符串::$DATA</span><br></pre></td></tr></table></figure>
+
+<p>![image-20260808185655891](C:\Users\邹丰璠\Desktop\kali\upload-labs\文件上传漏洞 Pass-03 04\image-20260808185655891.png)</p>
 <hr>
 <h4 id="Pass-04"><a href="#Pass-04" class="headerlink" title="Pass-04"></a>Pass-04</h4><p>本Pass黑名单做了补全，无法通过php12345等后缀名来绕过；</p>
 <p>但黑名单防脚本后缀，没有拒绝 Apache 的配置文件；</p>
@@ -225,6 +228,33 @@ Pass-03校验代码：
 
 <p>让服务器把png当成php处理；</p>
 <p>然后传shell，成功；</p>
+<hr>
+<h4 id="Pass-05"><a href="#Pass-05" class="headerlink" title="Pass-05"></a>Pass-05</h4><p>增加 <strong><code>.htaccess</code></strong> 黑名单拦截；</p>
+<p>检查源码，发现前面两Pass校验文件名用到 <strong><code>strtolower()</code></strong> 这个函数，这两问的弱点是黑名单不完整，通过传php其它非标准扩展名和配置类文件绕过，</p>
+<p>而本Pass完善了黑名单拦截却去掉了大小写检查</p>
+<p>本靶场环境中 <code>Windows+Apache</code> 系统对大小写不敏感，因此将 <code>.php</code> 改为大写可以绕过黑名单，且继续被服务器解析为 <code>.php</code></p>
+<p>补充：大小写不敏感系统</p>
+<p>![image-20260808190431588](C:\Users\邹丰璠\Desktop\kali\upload-labs\文件上传漏洞 Pass-03 04\image-20260808190431588.png)</p>
+<hr>
+<h4 id="Pass-06"><a href="#Pass-06" class="headerlink" title="Pass-06"></a>Pass-06</h4><p>补全大小写检查，但去掉了 <strong><code>trim()</code></strong> 空白字符校验</p>
+<p>Windows 文件系统写入时会自动剥掉尾随空格或点，于是黑名单对比绕过（有空格）,实际解析为 <code>.php</code> （无空格）</p>
+<p>可以在文件后缀名 <code>.php</code> 后加空格，对比后缀名时不匹配，但windows文件系统上传时会自动忽略空白字符</p>
+<p>补充：正是由于windows系统限制，无法创建这样的空白后缀文件，只能通过抓包改名或写脚本</p>
+<hr>
+<h4 id="Pass-07"><a href="#Pass-07" class="headerlink" title="Pass-07"></a>Pass-07</h4><p>本Pass的黑名单已经补全（PHP、ASP、JSP 各种大小写变体、<code>.htaccess</code> 等），无法再用非标准后缀或配置文件绕过。</p>
+<p>但对比 Pass-03 的源码可以发现，本Pass<strong>删掉了 <code>deldot()</code></strong> （删除文件名末尾点的自定义函数）</p>
+<p>故上传 <code>shell.php.</code>（文件名末尾加点）</p>
+<ol>
+<li><code>strrchr(&#39;shell.php.&#39;, &#39;.&#39;)</code> 返回 <code>.</code>，即扩展名被判定为 <code>.</code>，不在黑名单中 → 校验通过；</li>
+<li>保存时用的是<strong>原始文件名</strong> <code>$img_path = UPLOAD_PATH.&#39;/&#39;.$file_name</code>，即 <code>shell.php.</code>；</li>
+<li>但 <strong>Windows 文件系统写入时会自动剥掉文件名末尾的点（和空格）</strong>，实际落盘为 <code>shell.php</code>；</li>
+<li>Apache 将 <code>shell.php</code> 解析为 PHP 执行 → 绕过成功。</li>
+</ol>
+<p>由于 Windows 文件系统限制，无法在本地直接创建 <code>shell.php.</code> 这样的文件名，需要通过抓包修改文件名（<code>filename=&quot;shell.php.&quot;</code>）或脚本上传</p>
+<hr>
+<h4 id="Pass-08"><a href="#Pass-08" class="headerlink" title="Pass-08"></a>Pass-08</h4><p>本Pass又补足了 <strong><code>deldot()</code></strong> ，但去掉了  <code>::$DATA</code>  ；</p>
+<p>利用的是 ntfs 文件系统过滤机制，<code>::$data</code> 是 ntfs 的流语法，把这个文件名当作 NTFS 文件的默认流路径来解析，最后只留下 <code>.php</code> ，而黑名单拦截时不会过滤流名，依然能绕过</p>
+<p>由于 ntfs 是Windows文件系统限制，依然只能抓包或写脚本上传；</p>
 
     </div>
 
@@ -233,7 +263,7 @@ Pass-03校验代码：
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/文件上传漏洞/">#文件上传漏洞</a> <a href="/YUR1kaaaBlog/tags/Pass-03/">#Pass-03</a> <a href="/YUR1kaaaBlog/tags/Pass-04/">#Pass-04</a>
+            <a href="/YUR1kaaaBlog/tags/文件上传漏洞-黑名单绕过/">#文件上传漏洞 黑名单绕过</a> <a href="/YUR1kaaaBlog/tags/Pass-03-08/">#Pass-03-08</a>
         </div>
     
 
