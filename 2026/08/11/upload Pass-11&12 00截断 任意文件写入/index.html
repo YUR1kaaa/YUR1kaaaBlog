@@ -10,15 +10,16 @@
 
     <!--Description-->
     
-        <meta name="description" content="弱口令爆破
-弱口令字典常见密码
-1https://github.com/danielmiessler/SecLists
+        <meta name="description" content="文件上传漏洞文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。
+文件上传绕过检测：
 
-默认密码
-1https://github.com/hetianlab/DefaultCreds-cheat-sheet
+操作系统漏洞
+Apache解析漏洞
+图片木马
 
-fofa搜索引擎
-1https://fofa.info/">
+
+靶场：upload-labs
+Pass-11&amp;amp;12GET&amp;#x2F;">
     
 
     <!--Author-->
@@ -28,7 +29,7 @@ fofa搜索引擎
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="弱口令爆破"/>
+        <meta property="og:title" content="upload Pass-11&amp;12 00截断 任意文件写入"/>
     
 
     <!--Open Graph Description-->
@@ -53,7 +54,7 @@ fofa搜索引擎
 
     <!-- Title -->
     
-    <title>弱口令爆破 - 我是web高手</title>
+    <title>upload Pass-11&amp;12 00截断 任意文件写入 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -159,18 +160,18 @@ fofa搜索引擎
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/08/01/%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%88%86%E7%A0%B4/">
-                弱口令爆破
+            <a href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-11&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">
+                upload Pass-11&12 00截断 任意文件写入
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2026-08-01</span>
+                <span class="date">2026-08-11</span>
             
             
             
                 <span class="category">
-                    <a href="/YUR1kaaaBlog/categories/Learning/">Learning</a>
+                    <a href="/YUR1kaaaBlog/categories/文件上传漏洞/">文件上传漏洞</a>
                 </span>
             
         </div>
@@ -182,19 +183,50 @@ fofa搜索引擎
         
 
         <!-- Post Content -->
-        <h3 id="弱口令爆破"><a href="#弱口令爆破" class="headerlink" title="弱口令爆破"></a>弱口令爆破</h3><hr>
-<h4 id="弱口令字典"><a href="#弱口令字典" class="headerlink" title="弱口令字典"></a>弱口令字典</h4><p>常见密码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/danielmiessler/SecLists</span><br></pre></td></tr></table></figure>
+        <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。</p>
+<p>文件上传绕过检测：</p>
+<ul>
+<li>操作系统漏洞</li>
+<li>Apache解析漏洞</li>
+<li>图片木马</li>
+</ul>
+<hr>
+<h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
+<h4 id="Pass-11-12"><a href="#Pass-11-12" class="headerlink" title="Pass-11&amp;12"></a>Pass-11&amp;12</h4><p><strong>GET&#x2F;POST 0x00截断</strong></p>
+<p>00 截断是操作系统层的漏洞。</p>
+<p>由于操作系统是<strong>C语言或汇编语言</strong>编写的，这两种语言在定义字符串时，都是以  **<code>\0</code>**（0x00）作为字符串的结尾；</p>
+<p>操作系统在识别字符串时，当读取到  <strong><code>\0</code></strong> 字符时，就认为读取到了一个字符串的结束符号；</p>
+<p>因此，我们可以通过修改数据包，插入  <strong><code>\0</code></strong> 字符的方式，达到字符串截断的目的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$is_upload</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="variable">$msg</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;submit&#x27;</span>]))&#123;</span><br><span class="line">    <span class="variable">$ext_arr</span> = <span class="keyword">array</span>(<span class="string">&#x27;jpg&#x27;</span>,<span class="string">&#x27;png&#x27;</span>,<span class="string">&#x27;gif&#x27;</span>);</span><br><span class="line">    <span class="variable">$file_ext</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>],<span class="title function_ invoke__">strrpos</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>],<span class="string">&quot;.&quot;</span>)+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span>(<span class="title function_ invoke__">in_array</span>(<span class="variable">$file_ext</span>,<span class="variable">$ext_arr</span>))&#123;</span><br><span class="line">        <span class="variable">$temp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">        <span class="variable">$img_path</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;save_path&#x27;</span>].<span class="string">&quot;/&quot;</span>.<span class="title function_ invoke__">rand</span>(<span class="number">10</span>, <span class="number">99</span>).<span class="title function_ invoke__">date</span>(<span class="string">&quot;YmdHis&quot;</span>).<span class="string">&quot;.&quot;</span>.<span class="variable">$file_ext</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$temp_file</span>,<span class="variable">$img_path</span>))&#123;</span><br><span class="line">            <span class="variable">$is_upload</span> = <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$msg</span> = <span class="string">&#x27;上传出错！&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="variable">$msg</span> = <span class="string">&quot;只允许上传.jpg|.png|.gif类型文件！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>默认密码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/hetianlab/DefaultCreds-cheat-sheet</span><br></pre></td></tr></table></figure>
+<p>本题做了白名单校验后缀</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$file_ext</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>],<span class="title function_ invoke__">strrpos</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>],<span class="string">&quot;.&quot;</span>)+<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-<p>fofa搜索引擎</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://fofa.info/</span><br></pre></td></tr></table></figure>
+<p>**<code>strrpos(string, find, start)</code>**：查找子串在字符串中最后一次出现的位置, 返回从 <code>start</code> 开始的下标；</p>
+<p>默认 <code>start</code> 为 0 ，找不到函数返回 <code>false</code> ；</p>
+<p>提取上传的文件名中最后一次出现点的位置，从该位置截取到文件名最后（只识别最后一个后缀名）；</p>
+<p><code>move_uploaded_file</code> 函数把合格文件落盘到 <code>$img_path</code> 这个目标路径，</p>
+<p>但该路径的前半部分直接取用户上传路径，因此这个目标路径是用户可控的</p>
+<p>本题上传表单中：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;?save_path=../upload/&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>请选择要上传的图片：<span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;input_file&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload_file&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>社工库（违法，不能自己搭建）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:/sgk66,cc</span><br></pre></td></tr></table></figure>
+<p><code>action</code> 在默认url外额外指定了一个get参数 <code>?save_path=../upload/</code> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$img_path</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;save_path&#x27;</span>].<span class="string">&quot;/&quot;</span>.<span class="title function_ invoke__">rand</span>(<span class="number">10</span>,<span class="number">99</span>).<span class="title function_ invoke__">date</span>(<span class="string">&quot;YmdHis&quot;</span>).<span class="string">&quot;.&quot;</span>.<span class="variable">$file_ext</span>;</span><br></pre></td></tr></table></figure>
 
+<p> <code>$img_path</code> 正是接受了这个参数中的 <code>save_path</code> </p>
+<p>在合适位置插入一个 <code>%00</code> ，就可以截断后面的所有不可控内容。</p>
+<p><strong>在后缀校验时，提取的是文件的 <code>filename</code> 这个属性；</strong></p>
+<p><strong>而最终 <code>move_uploaded_file</code> 接收的部分重点在 <code>save_path</code> 这个部分，是由get请求上传的；</strong></p>
+<p>如果直接改一个 <code>shell.php%00</code> ，第一关后缀校验就从点号开始被全拦下了</p>
+<p>因此上传合法后缀图片但伪装木马，抓包让 <code>filename</code> 合法，get请求行里加 <code>shell.php%00</code></p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811001503818.png"></p>
+<p>上传后报错正常，提示服务器中找不到这个文件，这是肯定的，因为这个路径是我们有目的地拼凑的</p>
+<p>而乱码是因为网页渲染 <strong><code>\0</code></strong> 错误，实际上绕过已经成功</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811001536613.png"></p>
+<p>我们现在把shell交给服务器解析，删掉后面不需要的部分</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811001720655.png"></p>
+<p>绕过成功</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811001729193.png"></p>
 
     </div>
 
@@ -203,7 +235,7 @@ fofa搜索引擎
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/弱口令爆破/">#弱口令爆破</a>
+            <a href="/YUR1kaaaBlog/tags/upload-00截断/">#upload 00截断</a> <a href="/YUR1kaaaBlog/tags/Pass-11-12/">#Pass-11&12</a>
         </div>
     
 
