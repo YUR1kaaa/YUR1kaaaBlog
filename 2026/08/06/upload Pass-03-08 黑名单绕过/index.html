@@ -30,7 +30,7 @@ Pass-03校验代码：
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="文件上传漏洞 Pass-03-08 黑名单绕过"/>
+        <meta property="og:title" content="upload Pass-03-08 黑名单绕过"/>
     
 
     <!--Open Graph Description-->
@@ -55,7 +55,7 @@ Pass-03校验代码：
 
     <!-- Title -->
     
-    <title>文件上传漏洞 Pass-03-08 黑名单绕过 - 我是web高手</title>
+    <title>upload Pass-03-08 黑名单绕过 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -162,7 +162,7 @@ Pass-03校验代码：
     <div class="post-header">
         <h1 class="title">
             <a href="/YUR1kaaaBlog/2026/08/06/upload%20Pass-03-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">
-                文件上传漏洞 Pass-03-08 黑名单绕过
+                upload Pass-03-08 黑名单绕过
             </a>
         </h1>
         <div class="post-info">
@@ -215,7 +215,7 @@ Pass-03校验代码：
 <p>补充：关于 <code>::$DATA</code> ：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$file_ext = str_ireplace(&#x27;::$DATA&#x27;, &#x27;&#x27;, $file_ext);   //去除字符串::$DATA</span><br></pre></td></tr></table></figure>
 
-<p>![image-20260808185655891](C:\Users\邹丰璠\Desktop\kali\upload-labs\文件上传漏洞 Pass-03 04\image-20260808185655891.png)</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260808185655891.png"></p>
 <hr>
 <h4 id="Pass-04"><a href="#Pass-04" class="headerlink" title="Pass-04"></a>Pass-04</h4><p>本Pass黑名单做了补全，无法通过php12345等后缀名来绕过；</p>
 <p>但黑名单防脚本后缀，没有拒绝 Apache 的配置文件；</p>
@@ -234,7 +234,7 @@ Pass-03校验代码：
 <p>而本Pass完善了黑名单拦截却去掉了大小写检查</p>
 <p>本靶场环境中 <code>Windows+Apache</code> 系统对大小写不敏感，因此将 <code>.php</code> 改为大写可以绕过黑名单，且继续被服务器解析为 <code>.php</code></p>
 <p>补充：大小写不敏感系统</p>
-<p>![image-20260808190431588](C:\Users\邹丰璠\Desktop\kali\upload-labs\文件上传漏洞 Pass-03 04\image-20260808190431588.png)</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260808190431588.png"></p>
 <hr>
 <h4 id="Pass-06"><a href="#Pass-06" class="headerlink" title="Pass-06"></a>Pass-06</h4><p>补全大小写检查，但去掉了 <strong><code>trim()</code></strong> 空白字符校验</p>
 <p>Windows 文件系统写入时会自动剥掉尾随空格或点，于是黑名单对比绕过（有空格）,实际解析为 <code>.php</code> （无空格）</p>
@@ -263,7 +263,7 @@ Pass-03校验代码：
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/文件上传漏洞-黑名单绕过/">#文件上传漏洞 黑名单绕过</a> <a href="/YUR1kaaaBlog/tags/Pass-03-08/">#Pass-03-08</a>
+            <a href="/YUR1kaaaBlog/tags/upload-黑名单绕过/">#upload 黑名单绕过</a> <a href="/YUR1kaaaBlog/tags/Pass-03-08/">#Pass-03-08</a>
         </div>
     
 
@@ -297,19 +297,19 @@ Pass-03校验代码：
         <ul>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/09/upload%20Pass-09%20%E4%BB%A3%E7%A0%81%E7%BC%BA%E9%99%B7/">Untitled</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/09/upload%20Pass-09%20%E4%BB%A3%E7%A0%81%E7%BC%BA%E9%99%B7/">upload Pass-09 代码缺陷</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/upload%20Pass-03-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">文件上传漏洞 Pass-03-08 黑名单绕过</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/upload%20Pass-03-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">upload Pass-03-08 黑名单绕过</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%20Pass-03%2004/">文件上传漏洞 Pass-03/04</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/03/upload%20Pass-01%20%E5%89%8D%E7%AB%AFjs%E6%A0%A1%E9%AA%8C/">upload Pass-01 前端js校验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/03/upload%20Pass-01%20%E5%89%8D%E7%AB%AFjs%E6%A0%A1%E9%AA%8C/">文件上传漏洞 Pass-01 前端js校验</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/03/upload%20Pass-02%20MIME%E6%A0%A1%E9%AA%8C/">upload Pass-02 MIME校验</a>
             </li>
             
         </ul>
