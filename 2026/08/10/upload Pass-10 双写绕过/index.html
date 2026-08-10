@@ -10,8 +10,17 @@
 
     <!--Description-->
     
-        <meta name="description" content="Pass-10校验代码：
-123456$deny_ext = array(&amp;quot;php&amp;quot;,&amp;quot;php5&amp;quot;,&amp;quot;php4&amp;quot;,&amp;quot;php3&amp;quot;,&amp;quot;php2&amp;quot;,&amp;quot;html&amp;quot;,&amp;quot;htm&amp;qu">
+        <meta name="description" content="文件上传漏洞文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。
+文件上传绕过检测：
+
+操作系统漏洞
+Apache解析漏洞
+图片木马
+
+
+靶场：upload-labs
+Pass-10校验代码：
+123456$den">
     
 
     <!--Author-->
@@ -21,7 +30,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="我是web高手"/>
+        <meta property="og:title" content="upload Pass-10 双写绕过"/>
     
 
     <!--Open Graph Description-->
@@ -32,7 +41,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -46,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>我是web高手</title>
+    <title>upload Pass-10 双写绕过 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -153,7 +162,7 @@
     <div class="post-header">
         <h1 class="title">
             <a href="/YUR1kaaaBlog/2026/08/10/upload%20Pass-10%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">
-                Untitled
+                upload Pass-10 双写绕过
             </a>
         </h1>
         <div class="post-info">
@@ -161,6 +170,10 @@
                 <span class="date">2026-08-10</span>
             
             
+            
+                <span class="category">
+                    <a href="/YUR1kaaaBlog/categories/文件上传漏洞/">文件上传漏洞</a>
+                </span>
             
         </div>
     </div>
@@ -171,7 +184,16 @@
         
 
         <!-- Post Content -->
-        <h4 id="Pass-10"><a href="#Pass-10" class="headerlink" title="Pass-10"></a>Pass-10</h4><p>校验代码：</p>
+        <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。</p>
+<p>文件上传绕过检测：</p>
+<ul>
+<li>操作系统漏洞</li>
+<li>Apache解析漏洞</li>
+<li>图片木马</li>
+</ul>
+<hr>
+<h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
+<h4 id="Pass-10"><a href="#Pass-10" class="headerlink" title="Pass-10"></a>Pass-10</h4><p>校验代码：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$deny_ext</span> = <span class="keyword">array</span>(<span class="string">&quot;php&quot;</span>,<span class="string">&quot;php5&quot;</span>,<span class="string">&quot;php4&quot;</span>,<span class="string">&quot;php3&quot;</span>,<span class="string">&quot;php2&quot;</span>,<span class="string">&quot;html&quot;</span>,<span class="string">&quot;htm&quot;</span>,<span class="string">&quot;phtml&quot;</span>,<span class="string">&quot;pht&quot;</span>,<span class="string">&quot;jsp&quot;</span>,<span class="string">&quot;jspa&quot;</span>,<span class="string">&quot;jspx&quot;</span>,<span class="string">&quot;jsw&quot;</span>,<span class="string">&quot;jsv&quot;</span>,<span class="string">&quot;jspf&quot;</span>,<span class="string">&quot;jtml&quot;</span>,<span class="string">&quot;asp&quot;</span>,<span class="string">&quot;aspx&quot;</span>,<span class="string">&quot;asa&quot;</span>,<span class="string">&quot;asax&quot;</span>,<span class="string">&quot;ascx&quot;</span>,<span class="string">&quot;ashx&quot;</span>,<span class="string">&quot;asmx&quot;</span>,<span class="string">&quot;cer&quot;</span>,<span class="string">&quot;swf&quot;</span>,<span class="string">&quot;htaccess&quot;</span>);</span><br><span class="line"><span class="variable">$file_name</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span><br><span class="line"><span class="variable">$file_name</span> = <span class="title function_ invoke__">str_ireplace</span>(<span class="variable">$deny_ext</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$file_name</span>);</span><br><span class="line"><span class="variable">$temp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line"><span class="variable">$img_path</span> = UPLOAD_PATH.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$file_name</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$temp_file</span>, <span class="variable">$img_path</span>)) &#123;</span><br></pre></td></tr></table></figure>
 
 <p><strong><code>str_ireplace()</code></strong> ：把字符串中<strong>所有</strong>指定的子串替换成另一个字符串，且<strong>忽略大小写</strong>；</p>
@@ -190,6 +212,11 @@
 
     
 
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/YUR1kaaaBlog/tags/upload-双写绕过/">#upload 双写绕过</a> <a href="/YUR1kaaaBlog/tags/Pass-10/">#Pass-10</a>
+        </div>
     
 
     <!-- Comments -->
@@ -222,7 +249,7 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/10/upload%20Pass-10%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">Untitled</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/10/upload%20Pass-10%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">upload Pass-10 双写绕过</a>
             </li>
             
             <li>
