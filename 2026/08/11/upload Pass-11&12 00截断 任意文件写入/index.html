@@ -227,6 +227,21 @@ Pass-11&amp;amp;12GET&amp;#x2F;">
 <p><img src="/YUR1kaaaBlog/images/image-20260811001720655.png"></p>
 <p>绕过成功</p>
 <p><img src="/YUR1kaaaBlog/images/image-20260811001729193.png"></p>
+<hr>
+<p>Pass12同理，不过 <code>save_path</code> 变成了POST提交</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$img_path</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;save_path&#x27;</span>].<span class="string">&quot;/&quot;</span>.<span class="title function_ invoke__">rand</span>(<span class="number">10</span>, <span class="number">99</span>).<span class="title function_ invoke__">date</span>(<span class="string">&quot;YmdHis&quot;</span>).<span class="string">&quot;.&quot;</span>.<span class="variable">$file_ext</span>;</span><br></pre></td></tr></table></figure>
+
+<p>此处理解一下GET&#x2F;POST请求和HTTP表单：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//HTTP表单</span><br><span class="line">POST /upload/pass-12.php?save_path=../upload/ HTTP/1.1     ← 请求行</span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>lab.test:8080                                        ┐</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>multipart/form-data; boundary=...            │ 请求头</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>12345                                      ┘</span><br><span class="line">//空行</span><br><span class="line">body：multipart 分段、二进制内容等                            ← 请求体</span><br></pre></td></tr></table></figure>
+
+<p>GET表单把参数拼接在URL里，字段在<strong>请求行</strong>；</p>
+<p>POST 表单字段全在<strong>请求体</strong>里；</p>
+<p>Pass11中表单 <code>action</code> 里指定了 <code>?save_path=...</code>，因此虽然是POST表单，但参数跟着URL，成为GET方法；</p>
+<p>还有一点区别：GET请求拼在URL里。会被php自动解析，因此GET直接传 <code>%00</code> 能实现绕过</p>
+<p>而Pass12中参数在表单body里，且类型为 <code>multipart/form-data</code> ，文件段是原始字节，<strong>不做 URL 编码</strong>，因此传 <code>%00</code> 无法解析，也就无法实现绕过</p>
+<p>因此POST请求的话bp抓包后要手动URL解码</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811101503561.png"></p>
+<p>绕过成功</p>
 
     </div>
 
