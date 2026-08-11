@@ -10,17 +10,6 @@
 
     <!--Description-->
     
-        <meta name="description" content="文件上传漏洞文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。
-文件上传绕过检测：
-
-操作系统漏洞
-Apache解析漏洞
-图片木马
-
-
-靶场：upload-labs
-Pass-09先来看一下 deldot() （">
-    
 
     <!--Author-->
     
@@ -29,7 +18,7 @@ Pass-09先来看一下 deldot() （">
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="upload Pass-09 代码缺陷"/>
+        <meta property="og:title" content="我是web高手"/>
     
 
     <!--Open Graph Description-->
@@ -40,7 +29,7 @@ Pass-09先来看一下 deldot() （">
 
     <!--Type page-->
     
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
     
 
     <!--Page Cover-->
@@ -54,7 +43,7 @@ Pass-09先来看一下 deldot() （">
 
     <!-- Title -->
     
-    <title>upload Pass-09 代码缺陷 - 我是web高手</title>
+    <title>page - 归档 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -143,7 +132,9 @@ Pass-09先来看一下 deldot() （">
 <div class="container">
 
     <!-- Main Content -->
-    <div class="row">
+    
+
+<div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -151,97 +142,214 @@ Pass-09先来看一下 deldot() （">
     <div class="logo">
         <a href="/YUR1kaaaBlog/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
+            <h1 id="main-title" class="title">归档</h1>
+        
     </div>
 </header>
 
-        <section class="main">
+        <section class="main archive-container">
             
-<div class="post">
-
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/08/09/upload%20Pass-09%20%E4%BB%A3%E7%A0%81%E7%BC%BA%E9%99%B7/">
-                upload Pass-09 代码缺陷
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2026-08-09</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/YUR1kaaaBlog/categories/文件上传漏洞/">文件上传漏洞</a>
-                </span>
-            
-        </div>
-    </div>
-
-    <div class="content">
-
-        <!-- Gallery -->
-        
-
-        <!-- Post Content -->
-        <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。</p>
-<p>文件上传绕过检测：</p>
-<ul>
-<li>操作系统漏洞</li>
-<li>Apache解析漏洞</li>
-<li>图片木马</li>
-</ul>
-<hr>
-<h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
-<h4 id="Pass-09"><a href="#Pass-09" class="headerlink" title="Pass-09"></a>Pass-09</h4><p>先来看一下 <strong><code>deldot()</code></strong> （在 <code>common.php</code>）</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deldot</span>(<span class="params"><span class="variable">$s</span></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="variable">$i</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$s</span>)-<span class="number">1</span>;<span class="variable">$i</span>&gt;<span class="number">0</span>;<span class="variable">$i</span>--)&#123;</span><br><span class="line">		<span class="variable">$c</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$s</span>,<span class="variable">$i</span>,<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(<span class="variable">$i</span> == <span class="title function_ invoke__">strlen</span>(<span class="variable">$s</span>)-<span class="number">1</span> <span class="keyword">and</span> <span class="variable">$c</span> != <span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="variable">$s</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(<span class="variable">$c</span> != <span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="title function_ invoke__">substr</span>(<span class="variable">$s</span>,<span class="number">0</span>,<span class="variable">$i</span>+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>for循环：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="title function_ invoke__">strlen</span>(<span class="variable">$s</span>)-<span class="number">1</span>;<span class="variable">$i</span>&gt;<span class="number">0</span>;<span class="variable">$i</span>--)</span><br></pre></td></tr></table></figure>
-
-<p><code>strlen($s)</code> 获取字符串 <code>$s</code> 的长度</p>
-<ul>
-<li><code>$i = strlen($s)-1</code> 初始化循环变量为最后一个字符的<strong>索引</strong>（字符串索引从0开始）；</li>
-<li><code>$i&gt;0</code> 循环条件：当 <strong><code>$i</code> 大于 0</strong> 时继续循环；</li>
-<li><code>$i--</code> 每次循环后 <strong><code>$i</code> 减 1</strong>（从后往前遍历）；</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$c</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$s</span>, <span class="variable">$i</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-
-<p><code>substr()</code> 是字符串截取函数 ，获取字符串中索引为 <code>$i</code> 的单个字符</p>
-<p>参数：<code>$s</code>（源字符串）、<code>$i</code>（起始位置）、<code>1</code>（截取长度）</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$i</span> == <span class="title function_ invoke__">strlen</span>(<span class="variable">$s</span>)-<span class="number">1</span> <span class="keyword">and</span> <span class="variable">$c</span> != <span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>判断：最后一个符号不是点号就放行</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$c</span> != <span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">substr</span>(<span class="variable">$s</span>, <span class="number">0</span>, <span class="variable">$i</span>+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>判断：最后一个符号是点号，截取从开头到这个不是点号字符的部分（舍弃后面的点号）</p>
-<p>结合这个for循环的逻辑，这个函数实际上是从<strong>右往左遍历字符串：</strong></p>
-<p><strong>如果字符串的最后一个字符就不是点号，那整个字符串就没有尾部点号，直接返回原字符串</strong>；</p>
-<p><strong>否则，找到第一个不是点号的字符，就截取从开头到这个字符（包括它）的部分，丢弃后面的所有字符（相当于从后往前删除点）</strong>;</p>
-<p>因此Pass-09的代码本身存在漏洞；</p>
-<p><code>deldot()</code> 从后往前删除点，直到最后一个字符不是点为止；</p>
-<p>所以后缀加再多点也没用，但是点号中间加一个空格就能绕过检查；</p>
-<p>又因为 <code>trim()</code> 写在 <code>deldot()</code>  之前，此后空白符号不会再被过滤；</p>
-
-    </div>
-
-    
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/upload-代码缺陷/">#upload 代码缺陷</a> <a href="/YUR1kaaaBlog/tags/Pass-09/">#Pass-09</a>
-        </div>
-    
-
-    <!-- Comments -->
-    
-
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/DVWA/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        DVWA
+    </a>
 </div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/01/hydra%20%E4%B9%9D%E5%A4%B4%E8%9B%87/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        hydra 九头蛇
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/VMWare%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8C%82%E8%BD%BD/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        VMWare共享文件夹挂载
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/dirb/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        dirb
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/kali%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        kali基本操作
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/31/NetCat%20%E7%91%9E%E5%A3%AB%E5%86%9B%E5%88%80/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        NetCat 瑞士军刀
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/mysql80/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        mysql80
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/02/php/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        php
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/24/JavaScript/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        JavaScript
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/03/upload%20Pass%2002%20MIME%E6%A0%A1%E9%AA%8C/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-02 MIME校验
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/03/upload%20Pass%2001%20%E5%89%8D%E7%AB%AFjs%E6%A0%A1%E9%AA%8C/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-01 前端js校验
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/06/upload%20Pass%2003-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 03-08 黑名单绕过
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/09/upload%20Pass%2009%20%E4%BB%A3%E7%A0%81%E7%BC%BA%E9%99%B7/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-09 代码缺陷
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/10/upload%20Pass%2010%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-10 双写绕过
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/%E5%BC%B1%E5%8F%A3%E4%BB%A4%E5%AD%97%E5%85%B8/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        弱口令字典
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/11/upload%20Pass%2011&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 11&12 00截断 任意文件写入
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-16%20%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 16 二次渲染
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-13-15%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E_%E5%9B%BE%E7%89%87%E9%A9%AC%20-%20%E5%89%AF%E6%9C%AC/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 13-15 文件包含漏洞_图片马
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/01/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%88%E5%9F%9F%E5%90%8D%E3%80%81%E7%9B%AE%E5%BD%95%E3%80%81%E7%AB%AF%E5%8F%A3%EF%BC%89/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        信息收集（域名、目录、端口）
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/01/%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%88%86%E7%A0%B4/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        弱口令爆破
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/21/%E6%BB%91%E7%A8%BD/">
+        <span class="archive-date">
+            7月 2026
+        </span>
+        滑稽
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/22/%E8%AE%A1%E7%AE%97%E5%99%A8/">
+        <span class="archive-date">
+            7月 2026
+        </span>
+        计算器
+    </a>
+</div>
+            
         </section>
-
     </div>
 </div>
-
 
 </div>
 
@@ -263,19 +371,19 @@ Pass-09先来看一下 deldot() （">
         <ul>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-11&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">upload Pass-11&amp;12 00截断 任意</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass%2011&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">upload Pass 11&amp;12 00截断 任意</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/10/upload%20Pass-10%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">upload Pass-10 双写绕过</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-16%20%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93/">upload Pass 16 二次渲染</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/09/upload%20Pass-09%20%E4%BB%A3%E7%A0%81%E7%BC%BA%E9%99%B7/">upload Pass-09 代码缺陷</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-13-15%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E_%E5%9B%BE%E7%89%87%E9%A9%AC%20-%20%E5%89%AF%E6%9C%AC/">upload Pass 13-15 文件包含漏洞_</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/upload%20Pass-03-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">upload Pass-03-08 黑名单绕过</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/10/upload%20Pass%2010%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">upload Pass-10 双写绕过</a>
             </li>
             
         </ul>

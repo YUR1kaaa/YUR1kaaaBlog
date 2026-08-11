@@ -10,18 +10,6 @@
 
     <!--Description-->
     
-        <meta name="description" content="文件上传漏洞文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。
-文件上传绕过检测：
-
-操作系统漏洞
-Apache解析漏洞
-图片木马
-
-
-靶场：upload-labs
-Pass-10校验代码：
-123456$den">
-    
 
     <!--Author-->
     
@@ -30,7 +18,7 @@ Pass-10校验代码：
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="upload Pass-10 双写绕过"/>
+        <meta property="og:title" content="我是web高手"/>
     
 
     <!--Open Graph Description-->
@@ -41,7 +29,7 @@ Pass-10校验代码：
 
     <!--Type page-->
     
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
     
 
     <!--Page Cover-->
@@ -55,7 +43,7 @@ Pass-10校验代码：
 
     <!-- Title -->
     
-    <title>upload Pass-10 双写绕过 - 我是web高手</title>
+    <title>page - 归档：2026 - 我是web高手</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -144,7 +132,9 @@ Pass-10校验代码：
 <div class="container">
 
     <!-- Main Content -->
-    <div class="row">
+    
+
+<div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -152,82 +142,214 @@ Pass-10校验代码：
     <div class="logo">
         <a href="/YUR1kaaaBlog/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
+            <h1 id="main-title" class="title">2026</h1>
+        
     </div>
 </header>
 
-        <section class="main">
+        <section class="main archive-container">
             
-<div class="post">
-
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/YUR1kaaaBlog/2026/08/10/upload%20Pass-10%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">
-                upload Pass-10 双写绕过
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2026-08-10</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/YUR1kaaaBlog/categories/文件上传漏洞/">文件上传漏洞</a>
-                </span>
-            
-        </div>
-    </div>
-
-    <div class="content">
-
-        <!-- Gallery -->
-        
-
-        <!-- Post Content -->
-        <h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>文件上传漏洞是指服务器未充分校验用户上传文件的类型、内容或大小，导致攻击者可上传恶意脚本（如Webshell）并远程执行，从而控制服务器。</p>
-<p>文件上传绕过检测：</p>
-<ul>
-<li>操作系统漏洞</li>
-<li>Apache解析漏洞</li>
-<li>图片木马</li>
-</ul>
-<hr>
-<h4 id="靶场：upload-labs"><a href="#靶场：upload-labs" class="headerlink" title="靶场：upload-labs"></a>靶场：upload-labs</h4><hr>
-<h4 id="Pass-10"><a href="#Pass-10" class="headerlink" title="Pass-10"></a>Pass-10</h4><p>校验代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$deny_ext</span> = <span class="keyword">array</span>(<span class="string">&quot;php&quot;</span>,<span class="string">&quot;php5&quot;</span>,<span class="string">&quot;php4&quot;</span>,<span class="string">&quot;php3&quot;</span>,<span class="string">&quot;php2&quot;</span>,<span class="string">&quot;html&quot;</span>,<span class="string">&quot;htm&quot;</span>,<span class="string">&quot;phtml&quot;</span>,<span class="string">&quot;pht&quot;</span>,<span class="string">&quot;jsp&quot;</span>,<span class="string">&quot;jspa&quot;</span>,<span class="string">&quot;jspx&quot;</span>,<span class="string">&quot;jsw&quot;</span>,<span class="string">&quot;jsv&quot;</span>,<span class="string">&quot;jspf&quot;</span>,<span class="string">&quot;jtml&quot;</span>,<span class="string">&quot;asp&quot;</span>,<span class="string">&quot;aspx&quot;</span>,<span class="string">&quot;asa&quot;</span>,<span class="string">&quot;asax&quot;</span>,<span class="string">&quot;ascx&quot;</span>,<span class="string">&quot;ashx&quot;</span>,<span class="string">&quot;asmx&quot;</span>,<span class="string">&quot;cer&quot;</span>,<span class="string">&quot;swf&quot;</span>,<span class="string">&quot;htaccess&quot;</span>);</span><br><span class="line"><span class="variable">$file_name</span> = <span class="title function_ invoke__">trim</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span><br><span class="line"><span class="variable">$file_name</span> = <span class="title function_ invoke__">str_ireplace</span>(<span class="variable">$deny_ext</span>,<span class="string">&quot;&quot;</span>, <span class="variable">$file_name</span>);</span><br><span class="line"><span class="variable">$temp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;upload_file&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line"><span class="variable">$img_path</span> = UPLOAD_PATH.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$file_name</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$temp_file</span>, <span class="variable">$img_path</span>)) &#123;</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>str_ireplace()</code></strong> ：把字符串中<strong>所有</strong>指定的子串替换成另一个字符串，且<strong>忽略大小写</strong>；</p>
-<p>参数：<code>$deny_ext</code>（要查找的子串组成的数组）、<code>&quot;&quot;</code>（替换成空字符串，相当于删除）、<code>$file_name</code>（被处理的字符串）</p>
-<p>且黑名单<strong>没有带点号</strong>，是 <code>php</code> 而不是 <code>.php</code>，也就是说文件名里<strong>任何位置</strong>出现 <code>php</code> 都会被删掉；</p>
-<p>本Pass漏洞在于：**<code>str_ireplace()</code> 只做一次替换，不会对替换后的结果重新检查**；</p>
-<p><code>shell.php</code> 里的 <code>php</code> 被删掉后，剩下的字符不会再触发任何检查，但如果文件名里把 <code>php</code> 写成 **<code>pphphp</code>**（中间再嵌一个 <code>php</code>），删除中间的 <code>php</code> 后，剩下的前后两段又重新拼成了 <code>php</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str_ireplace(&quot;php&quot;,&quot;&quot;, &quot;shell.pphphp&quot;)  →  &quot;shell.php&quot;</span><br></pre></td></tr></table></figure>
-
-<p>因此Pass-10的代码本身存在漏洞；</p>
-<p><code>str_ireplace()</code> 单次替换、无递归校验，<strong>双写</strong>即可绕过；</p>
-<p>黑名单即使补得再全，只要替换后不重新校验，<code>pphphp</code> 这种双写写法总能拼出 <code>php</code>；</p>
-<p><code>pphphp</code> 是普通合法文件名，Windows 下可以直接创建，无需抓包；</p>
-
-    </div>
-
-    
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/YUR1kaaaBlog/tags/upload-双写绕过/">#upload 双写绕过</a> <a href="/YUR1kaaaBlog/tags/Pass-10/">#Pass-10</a>
-        </div>
-    
-
-    <!-- Comments -->
-    
-
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/DVWA/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        DVWA
+    </a>
 </div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/01/hydra%20%E4%B9%9D%E5%A4%B4%E8%9B%87/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        hydra 九头蛇
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/VMWare%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E6%8C%82%E8%BD%BD/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        VMWare共享文件夹挂载
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/dirb/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        dirb
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/kali%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        kali基本操作
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/31/NetCat%20%E7%91%9E%E5%A3%AB%E5%86%9B%E5%88%80/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        NetCat 瑞士军刀
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/mysql80/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        mysql80
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/02/php/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        php
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/24/JavaScript/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        JavaScript
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/03/upload%20Pass%2002%20MIME%E6%A0%A1%E9%AA%8C/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-02 MIME校验
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/03/upload%20Pass%2001%20%E5%89%8D%E7%AB%AFjs%E6%A0%A1%E9%AA%8C/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-01 前端js校验
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/06/upload%20Pass%2003-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 03-08 黑名单绕过
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/09/upload%20Pass%2009%20%E4%BB%A3%E7%A0%81%E7%BC%BA%E9%99%B7/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-09 代码缺陷
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/10/upload%20Pass%2010%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass-10 双写绕过
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/30/%E5%BC%B1%E5%8F%A3%E4%BB%A4%E5%AD%97%E5%85%B8/">
+        <span class="archive-date">
+            Jul 2026
+        </span>
+        弱口令字典
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/11/upload%20Pass%2011&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 11&12 00截断 任意文件写入
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-16%20%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 16 二次渲染
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-13-15%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E_%E5%9B%BE%E7%89%87%E9%A9%AC%20-%20%E5%89%AF%E6%9C%AC/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        upload Pass 13-15 文件包含漏洞_图片马
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/01/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%88%E5%9F%9F%E5%90%8D%E3%80%81%E7%9B%AE%E5%BD%95%E3%80%81%E7%AB%AF%E5%8F%A3%EF%BC%89/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        信息收集（域名、目录、端口）
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/08/01/%E5%BC%B1%E5%8F%A3%E4%BB%A4%E7%88%86%E7%A0%B4/">
+        <span class="archive-date">
+            Aug 2026
+        </span>
+        弱口令爆破
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/21/%E6%BB%91%E7%A8%BD/">
+        <span class="archive-date">
+            7月 2026
+        </span>
+        滑稽
+    </a>
+</div>
+            
+                <div class="archive-post">
+    <a href="/YUR1kaaaBlog/2026/07/22/%E8%AE%A1%E7%AE%97%E5%99%A8/">
+        <span class="archive-date">
+            7月 2026
+        </span>
+        计算器
+    </a>
+</div>
+            
         </section>
-
     </div>
 </div>
-
 
 </div>
 
@@ -249,19 +371,19 @@ Pass-10校验代码：
         <ul>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-11&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">upload Pass-11&amp;12 00截断 任意</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass%2011&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">upload Pass 11&amp;12 00截断 任意</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/10/upload%20Pass-10%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">upload Pass-10 双写绕过</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-16%20%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93/">upload Pass 16 二次渲染</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/09/upload%20Pass-09%20%E4%BB%A3%E7%A0%81%E7%BC%BA%E9%99%B7/">upload Pass-09 代码缺陷</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-13-15%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E_%E5%9B%BE%E7%89%87%E9%A9%AC%20-%20%E5%89%AF%E6%9C%AC/">upload Pass 13-15 文件包含漏洞_</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/06/upload%20Pass-03-08%20%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87/">upload Pass-03-08 黑名单绕过</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/10/upload%20Pass%2010%20%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87/">upload Pass-10 双写绕过</a>
             </li>
             
         </ul>
