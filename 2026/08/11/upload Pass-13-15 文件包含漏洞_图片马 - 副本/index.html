@@ -250,9 +250,9 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GIF89a<span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">phpinfo</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>上传这个shell.php通过</p>
-<p>![image-20260811162504341](C:\Users\邹丰璠\Desktop\kali\upload-labs\upload Pass-13-15 文件包含漏洞_图片马\image-20260811162504341.png)</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811162504341.png" alt="image-20260811162504341"></p>
 <p>此时文件被服务器接收，题目给出了文件包含漏洞通道，用这个检验一下木马效果</p>
-<p>![image-20260811162558552](C:\Users\邹丰璠\Desktop\kali\upload-labs\upload Pass-13-15 文件包含漏洞_图片马\image-20260811162558552.png)</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811162558552.png" alt="image-20260811162558552"></p>
 <p>文件上传后经过网页自己的命名规则，落盘为新文件名</p>
 <p>题目的文件包含漏洞通道代码为：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">本页面存在文件包含漏洞，用于测试图片马是否能正常运行！</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&quot;Content-Type:text/html;charset=utf-8&quot;</span>);</span><br><span class="line"><span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$file</span>))&#123;</span><br><span class="line">    <span class="keyword">include</span> <span class="variable">$file</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">show_source</span>(__file__);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
@@ -261,9 +261,9 @@
 <p>PHP 扫描整个文件内容，遇到 <code>&lt;?php ?&gt;</code> 标签就执行。而 <code>GIF89a</code> 只是普通文本，被原样输出</p>
 <p>同时发现文件是由GET传参接收 <code>file</code> 这一参数</p>
 <p>因此：</p>
-<p>![image-20260811163400013](C:\Users\邹丰璠\Desktop\kali\upload-labs\upload Pass-13-15 文件包含漏洞_图片马\image-20260811163400013.png)</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811163400013.png" alt="image-20260811163400013"></p>
 <p>效果如下：</p>
-<p>![image-20260811163538427](C:\Users\邹丰璠\Desktop\kali\upload-labs\upload Pass-13-15 文件包含漏洞_图片马\image-20260811163538427.png)</p>
+<p><img src="/YUR1kaaaBlog/images/image-20260811163538427.png" alt="image-20260811163538427"></p>
 <p>或者可以拼接更真实的伪装木马：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">copy</span> image.png /b shell.php /a webshell.png</span><br></pre></td></tr></table></figure>
 
@@ -352,7 +352,7 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-13-15%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E_%E5%9B%BE%E7%89%87%E9%A9%AC%20-%20%E5%89%AF%E6%9C%AC/">upload Pass 13-15 文件包含漏洞_</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass%2011&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">upload Pass 11&amp;12 00截断 任意</a>
             </li>
             
             <li>
@@ -360,7 +360,7 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass%2011&12%2000%E6%88%AA%E6%96%AD%20%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5/">upload Pass 11&amp;12 00截断 任意</a>
+                <a class="footer-post" href="/YUR1kaaaBlog/2026/08/11/upload%20Pass-13-15%20%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E_%E5%9B%BE%E7%89%87%E9%A9%AC%20-%20%E5%89%AF%E6%9C%AC/">upload Pass 13-15 文件包含漏洞_</a>
             </li>
             
             <li>
